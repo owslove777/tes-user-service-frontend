@@ -20,10 +20,10 @@ function App() {
         <Route path="/oauth/kakao/callback">
           <Auth />
         </Route>
-        <Route path="/profile">
+        {/* <Route path="/profile">
             <Profile />
             <h1>Success</h1>
-          </Route>
+          </Route> */}
       </Switch>
     </div>
     </Router>

@@ -25,7 +25,7 @@ const Auth = () => {
       // access token 가져오기
       const res = await axios.post(
         // "https://kauth.kakao.com/oauth/token",
-        "http:localhost:4000/oauth/token",             // 백엔드 URL정보(임의)
+        "http://localhost:4000/oauth/token",             // 백엔드 URL정보(임의)
         payload
       );
       
@@ -41,10 +41,10 @@ const Auth = () => {
   useEffect(() => {
     getToken();
   }, []);
-  return (
-    <div>
-      <h2>{res}</h2>
-    </div>
-  );
+  return null;
+    // <div>
+    //   <h2>{res}</h2>
+    // </div>
+  
 };
 export default Auth;
