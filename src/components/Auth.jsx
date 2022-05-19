@@ -17,7 +17,7 @@ const Auth = () => {
     const payload = qs.stringify({
       // grant_type: "authorization_code",
       // client_id: REST_API_KEY,
-      redirect_uri: REDIRECT_URI,
+      // redirect_uri: REDIRECT_URI,
       code: code,
       // client_secret: CLIENT_SECRET,
     });
@@ -30,11 +30,14 @@ const Auth = () => {
         payload
       );
 
-      // Kakao Javascript SDK 초기화
-      // window.Kakao.init(REST_API_KEY);
-      // access token 설정
-      // window.Kakao.Auth.setAccessToken(res.data.access_token);
-      // history.replace("/profile");
+      if(res.data.userType){
+        history.replace("/mainHome");
+      }
+      else{
+        history.replace("/checkUserType");
+      }
+
+
     } catch (err) {
       console.log(err);
     }
@@ -43,9 +46,6 @@ const Auth = () => {
     getToken();
   }, []);
   return null;
-    // <div>
-    //   <h2>{res}</h2>
-    // </div>
-
 };
+
 export default Auth;

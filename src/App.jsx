@@ -1,6 +1,8 @@
 import "./App.css";
 import Auth from "./components/Auth";
-import Profile from "./components/Profile";
+import CheckUserType from "./components/CheckUserType";
+import RegisterTalent from "./components/RegisterTalent";
+import SignupDetail from "./components/SignupDetail";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -20,10 +22,15 @@ function App() {
         <Route path="/oauth/kakao/callback">
           <Auth />
         </Route>
-        {/* <Route path="/profile">
-            <Profile />
-            <h1>Success</h1>
-          </Route> */}
+        <Route path="/checkUserType">
+          <CheckUserType />
+        </Route>
+        <Route path="/registerTalent">
+          <RegisterTalent />
+        </Route>
+        <Route path="/signupDetail">
+          <SignupDetail />
+        </Route>
       </Switch>
     </div>
     </Router>
