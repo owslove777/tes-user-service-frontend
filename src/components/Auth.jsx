@@ -12,7 +12,7 @@ const Auth = () => {
   const code = new URL(window.location.href).searchParams.get("code");
 
   const history = useHistory();
-  
+
   const getToken = async () => {
     const payload = qs.stringify({
       // grant_type: "authorization_code",
@@ -23,12 +23,13 @@ const Auth = () => {
     });
     try {
       // access token 가져오기
-      const res = await axios.post(
+      const res = await axios.get(
         // "https://kauth.kakao.com/oauth/token",
-        "http://localhost:4000/oauth/token",             // 백엔드 URL정보(임의)
+        "http://clouddance.hrd-edu.cloudzcp.com/user/users/login/kakao?code="+code,
+        // "http://localhost:8080/users/login/kakao?code="+code,             // 백엔드 URL정보(임의)
         payload
       );
-      
+
       // Kakao Javascript SDK 초기화
       // window.Kakao.init(REST_API_KEY);
       // access token 설정
@@ -45,6 +46,6 @@ const Auth = () => {
     // <div>
     //   <h2>{res}</h2>
     // </div>
-  
+
 };
 export default Auth;
