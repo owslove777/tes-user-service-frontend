@@ -3,6 +3,8 @@ import Auth from "./components/Auth";
 import CheckUserType from "./components/CheckUserType";
 import RegisterTalent from "./components/RegisterTalent";
 import SignupDetail from "./components/SignupDetail";
+import MainHome from "./components/MainHome";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -30,6 +32,9 @@ function App() {
         </Route>
         <Route path="/signupDetail">
           <SignupDetail />
+        </Route>
+        <Route path="/mainHome">
+          <MainHome />
         </Route>
       </Switch>
     </div>
