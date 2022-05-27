@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   const REST_API_KEY = process.env.REACT_APP_REST_API_KEY;
-  const REDIRECT_URI = process.env.REACT_APP_SERVER+"/kakao";
+  const REDIRECT_URI = process.env.REACT_APP_SERVER+"/oauth/kakao/callback";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   return (
@@ -21,8 +21,7 @@ function App() {
             <a href={KAKAO_AUTH_URL}><img src="kakao_login.png" id="kakao-login-btn"/></a>
           </h1>
         </Route>
-        <Route path="/kakao">
-        {/* <Route path="/oauth/kakao/callback"> */}
+        <Route path="/kakao/callback">
           <Auth />
         </Route>
         <Route path="/checkUserType">
