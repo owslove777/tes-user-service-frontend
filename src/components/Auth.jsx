@@ -26,8 +26,8 @@ const Auth = () => {
       // access token 가져오기
       const res = await axios.get(
         // "https://kauth.kakao.com/oauth/token",
-        "http://clouddance.hrd-edu.cloudzcp.com/user/users/login/kakao?code="+code,
-        // "http://localhost:8080/users/login/kakao?code="+code,             // 백엔드 URL정보(임의)
+      //  "http://clouddance.hrd-edu.cloudzcp.com/user/users/login/kakao?code="+code,
+         "http://localhost:8080/users/login/kakao?code="+code,             // 백엔드 URL정보(임의)
         payload
       );
       console.log("res");

@@ -21,7 +21,7 @@ function App() {
             <a href={KAKAO_AUTH_URL}><img src="kakao_login.png" id="kakao-login-btn"/></a>
           </h1>
         </Route>
-        <Route path="/kakao/callback">
+        <Route path="/oauth/kakao/callback">
           <Auth />
         </Route>
         <Route path="/checkUserType">
