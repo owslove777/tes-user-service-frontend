@@ -1,20 +1,20 @@
-# build environment
-FROM node:13.12.0-alpine as build
+FROM node:15-alpine
 WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm ci --silent
-RUN npm install react-scripts@3.4.1 -g --silent
-COPY . ./
-CMD ["npm", "run", "start"]
+COPY package*.json ./
+RUN npm install
 
-FROM nginx:stable-alpine
-COPY --from=build /app/build /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY ./nginx.conf /etc/nginx/conf.d
+FROM node:15-alpine
+WORKDIR /app
+COPY --from=0 /app/ .
+COPY ./ .
+RUN npm run build
+
+FROM nginx:1.19
+RUN mkdir /app
+COPY --from=1 /app/build /app
+# COPY ./nginx.conf /etc/nginx/nginx.conf
+# COPY ./amdp-base/user-service-frontend/nginx.conf /etc/nginx/nginx.conf
+COPY ./nginx.conf /etc/nginx/nginx.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
-
-
 
