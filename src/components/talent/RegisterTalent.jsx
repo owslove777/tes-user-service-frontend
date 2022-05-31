@@ -12,7 +12,7 @@ const RegisterTalent = () => {
       <div>
         재능 : <input name="talentType" />
       </div>
-      <button type="submit">확인</button>      
+      <button className="submit-talent" type="submit">확인</button>      
     </form>
     </>
   );
