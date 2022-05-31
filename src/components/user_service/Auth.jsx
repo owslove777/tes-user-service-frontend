@@ -22,7 +22,7 @@ const Auth = () => {
         payload
       );
 
-      console.log("res");
+      console.log(res);
 
       const ACCESS_TOKEN =res.data.accessToken;
       localStorage.setItem("token", ACCESS_TOKEN);

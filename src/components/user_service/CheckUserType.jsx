@@ -12,7 +12,7 @@ const CheckUserType = userInfo => {
     try {
       axios(
         {
-          url: '/user/users/' + userInfo.userId,
+          url: '/user/users/'+userInfo.id,
           method: 'PUT',
           data: {
             "id": userInfo.id,
@@ -43,7 +43,7 @@ const CheckUserType = userInfo => {
     try {
       axios(
         {
-          url: '/user/users/' + userInfo.userId,
+          url: '/user/users/' + userInfo.id,
           method: 'PUT',
           data: {
             "id": userInfo.id,
