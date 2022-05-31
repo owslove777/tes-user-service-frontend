@@ -29,7 +29,7 @@ const Auth = () => {
 
       if (res.data.userType) {
         history.push({
-          pathname: "/mainHome",
+          pathname: "/home",
           state: { id: res.data }
         });
       }

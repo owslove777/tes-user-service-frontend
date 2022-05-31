@@ -8,7 +8,7 @@ import Footer from "../footer/Footer";
 import styles from './Home.module.css';
 
 
-const MainHome = userInfo => {
+const Home = userInfo => {
 
   useEffect(() => {
     // const requestOptions = {
@@ -36,4 +36,4 @@ const MainHome = userInfo => {
   );
 };
 
-export default MainHome;
+export default Home;
