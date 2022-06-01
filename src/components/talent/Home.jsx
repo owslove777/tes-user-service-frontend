@@ -13,7 +13,7 @@ const Home = userInfo => {
   const location = useLocation();
 
   const { id, email, name, imageUrl, status, address } = location.state.userInfo;
-  const userType = location.state.userType;
+  const userType = (location.state.userType == null) ? location.state.userInfo.userType : location.state.userType ;
 
 
   useEffect(() => {
