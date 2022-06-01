@@ -2,13 +2,19 @@ import React from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import qs from "qs";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import styles from './Home.module.css';
 
 
 const Home = userInfo => {
+
+  const location = useLocation();
+
+  const { id, email, name, imageUrl, status, address } = location.state.userInfo;
+  const userType = location.state.userType;
+
 
   useEffect(() => {
     // const requestOptions = {
@@ -29,7 +35,7 @@ const Home = userInfo => {
     <section className={styles.home}>
       <Header />
       <div className={styles.container}>
-        <h2>환영합니다.</h2>
+        <h2>[{userType}] {name}님 환영합니다.</h2>
       </div>
       <Footer />
     </section>

@@ -23,6 +23,8 @@ const Auth = () => {
       );
 
       console.log(res);
+      console.log(res.data);
+      console.log(res.data.id);
 
       const ACCESS_TOKEN =res.data.accessToken;
       localStorage.setItem("token", ACCESS_TOKEN);
@@ -30,13 +32,13 @@ const Auth = () => {
       if (res.data.userType) {
         history.push({
           pathname: "/home",
-          state: { id: res.data }
+          state: { userInfo: res.data }
         });
       }
       else {
         history.push({
           pathname: "/checkUserType",
-          state: { id: res.data }
+          state: { userInfo: res.data }
         });
       }
 

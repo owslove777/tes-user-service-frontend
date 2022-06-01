@@ -1,58 +1,35 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import qs from "qs";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
-const CheckUserType = userInfo => {
+const CheckUserType = () => {
 
   const history = useHistory();
+  const location = useLocation();
 
-  const clickTalent = () => {
+  const { id, email, name, imageUrl, status, address, userType } = location.state.userInfo;
+  const [state, setState] = useState({ selectUserType: null });
+
+  console.log(location.state.userInfo);
+
+  const signIn = () => {
+
+    console.log("selectUserType : " + state.selectUserType);
     try {
       axios(
         {
-          url: '/user/users/'+userInfo.id,
+          url: '/user/users/' + id,
           method: 'PUT',
           data: {
-            "id": userInfo.id,
-            "email": userInfo.email,
-            "name": userInfo.name,
-            "status": userInfo.status,
-            "imageUrl": userInfo.imageUrl,
-            "address": userInfo.address,
-            "userType": "seller"
-          },
-
-          baseURL: 'http://clouddance.hrd-edu.cloudzcp.com',
-          //withCredentials: true,
-        }
-        ).then(function (res) {
-          console.log(res.data);
-          history.push({
-            pathname: "/home",
-            state: { userInfo: userInfo }
-          });
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
-  const clickUser = () => {
-    try {
-      axios(
-        {
-          url: '/user/users/' + userInfo.id,
-          method: 'PUT',
-          data: {
-            "id": userInfo.id,
-            "email": userInfo.email,
-            "name": userInfo.name,
-            "status": userInfo.status,
-            "imageUrl": userInfo.imageUrl,
-            "address": userInfo.address,
-            "userType": "user"
+            "id": id,
+            "email": email,
+            "name": name,
+            "status": status,
+            "imageUrl": imageUrl,
+            "address": address,
+            "userType": state.selectUserType
           },
 
           baseURL: 'http://clouddance.hrd-edu.cloudzcp.com',
@@ -60,9 +37,10 @@ const CheckUserType = userInfo => {
         }
       ).then(function (res) {
         console.log(res.data);
+        window.alert("회원가입을 축하드립니다.");
         history.push({
           pathname: "/home",
-          state: { userInfo: userInfo }
+          state: { userInfo: location.state.userInfo, userType: state.selectUserType }
         });
       });
     } catch (err) {
@@ -70,11 +48,29 @@ const CheckUserType = userInfo => {
     }
   }
 
+  const clickTalent = () => {
+    setState((previousState) => {
+      previousState.selectUserType = "seller";
+      return previousState;
+    });
+    signIn();
+  }
+
+  const clickUser = () => {
+    setState((previousState) => {
+      previousState.selectUserType = "user";
+      return previousState;
+    });
+    signIn();
+  }
+
   return (
     <>
-      <h2>재능인이십니까?</h2>
-      <button onClick={clickTalent}>Yes</button>
-      <button onClick={clickUser}>No</button>
+      <ul>
+        <h2>재능인이십니까?</h2>
+        <button onClick={clickTalent}>Yes</button>
+        <button onClick={clickUser}>No</button>
+      </ul>
     </>
   );
 };
