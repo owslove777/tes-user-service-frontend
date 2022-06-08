@@ -1,3 +1,5 @@
+@value tesGrey from './common/colors.css';
+
 * {
   box-sizing: border-box;
 }
@@ -9,5 +11,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: tesGrey;
 }
 

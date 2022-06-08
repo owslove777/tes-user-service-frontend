@@ -1,6 +1,6 @@
 @value mediaQuery from '../../common/size.css';
 
-.home{
+.talentSearch{
   width: 100%;
   height: 100%;
   display: flex;
@@ -14,9 +14,3 @@
   flex: 1;
   height:10em;
 }
-
-/* @media screen and (max-width: mediaQuery) {
-  .container {
-    flex-direction: column;
-  }
-} */

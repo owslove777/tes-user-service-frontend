@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import qs from "qs";
@@ -6,9 +6,13 @@ import { useHistory, useLocation } from "react-router-dom";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import styles from './Home.module.css';
+import WelcomePage from "./WelcomePage";
+import TalentList from "./TalentList";
+import NavBarElement from "../navbar/NavBarElement";
+import Sidebar from "../sidebar/Sidebar";
 
 
-const Home = userInfo => {
+const Home = () => {
 
   const location = useLocation();
 
@@ -16,26 +20,16 @@ const Home = userInfo => {
   const userType = (location.state.userType == null) ? location.state.userInfo.userType : location.state.userType ;
 
 
-  useEffect(() => {
-    // const requestOptions = {
-    //   method: 'GET',
-    //   redirect: 'follow',
-    // };
-
-    // fetch(
-    //   'http://clouddance.hrd-edu.cloudzcp.com/talents'
-
-    // )
-    // .then(response => response.json())
-    // .then(result => console.log(result))
-    // .catch(error => console.log('error', error));
-  })
 
   return (
     <section className={styles.home}>
-      <Header />
+      <Header/>
+      {/* <NavBarElement talents={talents}/> */}
+      
       <div className={styles.container}>
-        <h2>[{userType}] {name}님 환영합니다.</h2>
+        <Sidebar userType={userType} name={name}/>
+        <WelcomePage userType={userType} name={name}/>
+        {/* <TalentList /> */}
       </div>
       <Footer />
     </section>

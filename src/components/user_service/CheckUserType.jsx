@@ -32,7 +32,8 @@ const CheckUserType = () => {
             "userType": state.selectUserType
           },
 
-          baseURL: 'http://clouddance.hrd-edu.cloudzcp.com',
+          // baseURL: 'http://clouddance.hrd-edu.cloudzcp.com',
+          baseURL: 'http://localhost:30080',
           //withCredentials: true,
         }
       ).then(function (res) {
