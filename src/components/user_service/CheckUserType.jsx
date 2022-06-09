@@ -1,7 +1,6 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import qs from "qs";
 import { useHistory, useLocation } from "react-router-dom";
 
 const CheckUserType = () => {

@@ -7,7 +7,7 @@ import TalentList from "./components/talent/TalentList";
 import SignupDetail from "./components/user_service/SignupDetail";
 import Home from "./components/talent/Home";
 import Login from "./components/user_service/Login";
-
+import NavBarElement from "./components/navbar/NavBarElement";
 
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
@@ -15,7 +15,8 @@ function App() {
 
   return (
     <Router>
-    <div className={styles.App}>
+      <NavBarElement />
+    <div className={styles.App}>      
       <Switch>
         <Route exact path={["/", '/login']}>
           <Login />
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/checkUserType">
           <CheckUserType />
+        </Route>
+        <Route path="/home">
+          <Home />
         </Route>
         <Route path="/talentSearch">
           <TalentSearch />
@@ -37,9 +41,6 @@ function App() {
         </Route>
         <Route path="/signupDetail">
           <SignupDetail />
-        </Route>
-        <Route path="/home">
-          <Home />
         </Route>
       </Switch>
     </div>

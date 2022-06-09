@@ -16,22 +16,26 @@ const Home = () => {
 
   const location = useLocation();
 
-  const { id, email, name, imageUrl, status, address } = location.state.userInfo;
-  const userType = (location.state.userType == null) ? location.state.userInfo.userType : location.state.userType ;
+  // console.log("userInfo : " + props.userType);
+
+  // const { id, email, name, imageUrl, status, address } = (location.state.userInfo == null) ? props.userInfo : location.state.userInfo;  
+  // const { id, email, name, imageUrl, status, address } = location.state.userInfo;
+  // const userType = (location.state.userType == null) ? location.state.userInfo.userType : location.state.userType ;
 
 
 
   return (
     <section className={styles.home}>
-      <Header/>
+      {/* <Header/> */}
       {/* <NavBarElement talents={talents}/> */}
       
       <div className={styles.container}>
-        <Sidebar userType={userType} name={name}/>
-        <WelcomePage userType={userType} name={name}/>
-        {/* <TalentList /> */}
+        {/* <Sidebar userType={userType} userInfo={location.state.userInfo}/>
+        <WelcomePage userType={userType} name={name}/> */}
+        {/* <Sidebar /> */}
+        <WelcomePage />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </section>
   );
 };

@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../header/Header';
-import Footer from '../footer/Footer';
 import styles from './Login.module.css';
 
 const Login = props => {
@@ -14,20 +12,15 @@ const Login = props => {
   return (
     <>
       <section className={styles.login}>
-        <Header />
         <section>
           <h3 className={styles.text}>LOGIN</h3>
           <ul className={styles.list}>
             <li className={styles.item}>
-              {/* <button className={styles.button}>
-              Kakao
-            </button> */}
               <a href={KAKAO_AUTH_URL}><img src="kakao_login.png" id="kakao-login-btn" /></a>
             </li>
           </ul>
 
         </section>
-        <Footer />
       </section>
     </>
   );
