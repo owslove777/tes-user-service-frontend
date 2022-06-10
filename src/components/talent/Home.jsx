@@ -22,6 +22,8 @@ const Home = () => {
   // const { id, email, name, imageUrl, status, address } = location.state.userInfo;
   // const userType = (location.state.userType == null) ? location.state.userInfo.userType : location.state.userType ;
 
+  const userType = "seller";
+  const name = "Jaden"
 
 
   return (
@@ -30,10 +32,10 @@ const Home = () => {
       {/* <NavBarElement talents={talents}/> */}
       
       <div className={styles.container}>
-        {/* <Sidebar userType={userType} userInfo={location.state.userInfo}/>
-        <WelcomePage userType={userType} name={name}/> */}
+        {/* <Sidebar userType={userType} userInfo={location.state.userInfo}/>*/
+        <WelcomePage userType={userType} name={name}/> }
         {/* <Sidebar /> */}
-        <WelcomePage />
+        {/* <WelcomePage /> */}
       </div>
       {/* <Footer /> */}
     </section>

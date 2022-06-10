@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import Styles from './TalentSearch.module.css'
+import styles from './TalentSearch.module.css'
 import TalentInfo from './TalentInfo';
 
 const TalentSearch = () => {
@@ -48,27 +48,31 @@ const TalentSearch = () => {
 
 
   return (
-    <section className={Styles.talentSearch}>
-      <div className={Styles.container}>
-        <section className={Styles.talentSearchBox}>
-          <h1 className={Styles.title}>재능인 조회</h1>
+    <section className={styles.talentSearch}>
+      <div className={styles.container}>
+        <section className={styles.talentSearchBox}>
+          <h1 className={styles.title}>재능인 조회</h1>
           <form onSubmit={onSubmit}>
-            <input className={Styles.input} type="text" name="categoryId" placeholder="카테고리" ref={cateRef} />
-            <input className={Styles.input} type="text" name="address" placeholder="주소" ref={addrRef} />
+            <input className={styles.input} type="text" name="categoryId" placeholder="카테고리" ref={cateRef} />
+            <input className={styles.input} type="text" name="address" placeholder="주소" ref={addrRef} />
             <button
-              className={Styles.button}
+              className={styles.button}
               type="submit">
-              <img className={Styles.buttonImg} src="/images/search.png" alt="search" />
+              <img className={styles.buttonImg} src="/images/search.png" alt="search" />
             </button>
           </form>
-          {talents.map((data) => (
-            <TalentInfo
-              categoryId={data.categoryId}
-              userId={data.userId}
-              title={data.title}
-              address={data.address}
-            />
-          ))}
+          <div className={styles.talentList}>
+            {talents.map((data) => (
+              <TalentInfo
+                categoryId={data.categoryId}
+                userId={data.userId}
+                title={data.title}
+                address={data.address}
+                description={data.description}
+                options={data.options}
+              />
+            ))}
+          </div>
         </section>
       </div>
     </section>

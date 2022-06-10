@@ -46,3 +46,16 @@
   padding: 0.3em 0.2em;
   
 }
+
+.talentList {
+
+  align-items: center;
+  border-radius: 0.2em;
+  margin: 2em 3em 1em 0em;
+  padding: 0.2em 0;
+  /* background-color: yellow; */
+  background: tesWhite;
+  box-shadow: 1px 1px 4px 0px;
+  /* max-width: 30rem; */
+  text-align: left;
+}

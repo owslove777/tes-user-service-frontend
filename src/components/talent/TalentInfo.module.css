@@ -4,15 +4,19 @@
   display: flex;
   align-items: center;
   border-radius: 1em;
-  margin: 2em 4em 1em 2em;
+  margin: 2em 4em 2em 2em;
   padding: 0.2em 0;
   /* background-color: yellow; */
   background: tesWhite;
   box-shadow: 6px 6px 8px 0px;
   /* max-width: 30rem; */
-  text-align: left;
+  text-align: left; 
   
+}
 
+.talentInfo:hover {
+  transform : scale(1.01);
+  cursor: pointer;
 }
 
 .info {

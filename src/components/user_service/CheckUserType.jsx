@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
+import styles from "./CheckUserType.module.css";
 
 const CheckUserType = () => {
 
@@ -66,11 +67,18 @@ const CheckUserType = () => {
 
   return (
     <>
-      <ul>
-        <h2>재능인이십니까?</h2>
-        <button onClick={clickTalent}>Yes</button>
-        <button onClick={clickUser}>No</button>
-      </ul>
+      <div className={styles.checkUserType}>
+        <div className={styles.containerA}>
+          <h1> 간편 회원가입 </h1>
+        </div>
+        <div className={styles.containerB}>
+          <h2>'재능인' 인가요?</h2>
+          <ul >
+            <button className={styles.button} onClick={clickTalent}>Yes</button>
+            <button className={styles.button} onClick={clickUser}>No</button>
+          </ul>
+        </div>
+      </div>
     </>
   );
 };
