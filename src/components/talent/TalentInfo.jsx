@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './TalentInfo.module.css';
 import { useHistory} from "react-router-dom";
+import axios from 'axios';
 
 
 const TalentInfo = ({ categoryId, userId, title, address, description, options }) => {

@@ -14,7 +14,7 @@ const TalentSearch = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (cateRef.current.value || addrRef.current.value)
-      setUrl(`http://localhost:30090/talent/talents/${cateRef.current.value}?address=${addrRef.current.value}`)
+      setUrl(`http://localhost:30090/talent/talents/category/${cateRef.current.value}?address=${addrRef.current.value}`)
     else
       setUrl("http://localhost:30090/talent/talents/");
 
@@ -62,6 +62,7 @@ const TalentSearch = () => {
             </button>
           </form>
           <div className={styles.talentList}>
+          {/* <TalentInfo categoryId={talents[0].categoryId} /> */}
             {talents.map((data) => (
               <TalentInfo
                 categoryId={data.categoryId}

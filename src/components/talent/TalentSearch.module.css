@@ -50,6 +50,7 @@
 .talentList {
 
   align-items: center;
+  min-height:236.75px ;
   border-radius: 0.2em;
   margin: 2em 3em 1em 0em;
   padding: 0.2em 0;
