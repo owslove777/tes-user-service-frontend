@@ -5,7 +5,6 @@ import TalentRegister from "./components/talent/TalentRegister";
 import TalentSearch from "./components/talent/TalentSearch";
 import TalentList from "./components/talent/TalentList";
 import TalentDetail from "./components/talent/TalentDetail.jsx";
-import SignupDetail from "./components/user_service/SignupDetail";
 import Home from "./components/talent/Home";
 import Login from "./components/user_service/Login";
 import NavBarElement from "./components/navbar/NavBarElement";
@@ -45,9 +44,6 @@ function App() {
           </Route>
           <Route path="/talentRegister">
             <TalentRegister />
-          </Route>
-          <Route path="/signupDetail">
-            <SignupDetail />
           </Route>
         </Switch>
       </div>
