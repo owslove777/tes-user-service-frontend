@@ -11,7 +11,7 @@ const NavBarElement = ({ talents }) => {
           <Nav.Link href="/home">Home</Nav.Link>
           <NavDropdown title="Talent" id="basic-nav-dropdown">
             <NavDropdown.Item href="/talentSearch">Search</NavDropdown.Item>
-            <NavDropdown.Item href="#">Register</NavDropdown.Item>
+            <NavDropdown.Item href="/talentRegister">Register</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#">TBD</NavDropdown.Item>
           </NavDropdown>

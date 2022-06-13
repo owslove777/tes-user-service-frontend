@@ -16,6 +16,8 @@ const TalentProfile = (props) => {
 
   const [selectOption, setSelectOption] = useState(0);
 
+  const history = useHistory();
+
   function handleClickOption(e) {
     // e.preventDefault();
     setSelectOption(e.currentTarget.value);
@@ -29,10 +31,12 @@ const TalentProfile = (props) => {
     window.alert("재능인에게 요청 완료");
     console.log("test4 : " + selectOption);
 
-    useHistory.push({
+    history.push({
       pathname: "/contract",
-      state: { selectOption: selectOption }
+      state: { data: data, selectOption: selectOption }
     });
+    {console.log("request_data : "+ data.userId)};
+    {console.log("request_selectOption : "+ selectOption)};
 
   }
 

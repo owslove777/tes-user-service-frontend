@@ -49,8 +49,7 @@ const TalentSearch = () => {
 
   return (
     <section className={styles.talentSearch}>
-      <div className={styles.container}>
-        <section className={styles.talentSearchBox}>
+      <div className={styles.talentSearchBox}>
           <h1 className={styles.title}>재능인 조회</h1>
           <form onSubmit={onSubmit}>
             <input className={styles.input} type="text" name="categoryId" placeholder="카테고리" ref={cateRef} />
@@ -71,10 +70,10 @@ const TalentSearch = () => {
                 address={data.address}
                 description={data.description}
                 options={data.options}
+                root="Search"
               />
             ))}
           </div>
-        </section>
       </div>
     </section>
 
