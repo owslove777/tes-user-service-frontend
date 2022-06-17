@@ -18,7 +18,8 @@ const Auth = () => {
       // access token 가져오기
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/user/users/login/kakao?code=" + code,
-          "http://localhost:30080/users/login/kakao?code="+code,             // 백엔드 URL정보(임의)
+          // "http://localhost:30080/users/login/kakao?code="+code,
+          process.env.REACT_APP_USER_SERVICE_SERVER+"/users/login/kakao?code="+code,             // 백엔드 URL정보(임의)
         payload
       );
 
@@ -26,8 +27,10 @@ const Auth = () => {
       console.log(res.data);
       console.log(res.data.id);
 
-      const ACCESS_TOKEN =res.data.accessToken;
+      const ACCESS_TOKEN =res;
+      console.table(ACCESS_TOKEN);
       localStorage.setItem("token", ACCESS_TOKEN);
+      console.log("test4 : " + localStorage.getItem("token"));
 
       if (res.data.userType) {
         history.push({

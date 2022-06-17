@@ -8,9 +8,13 @@ import TalentDetail from "./components/talent/TalentDetail.jsx";
 import Home from "./components/talent/Home";
 import Login from "./components/user_service/Login";
 import NavBarElement from "./components/navbar/NavBarElement";
+import ContractRequest from "./components/contract/ContractRequest";
+import Logout from "./components/user_service/Logout";
 
 
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import ContractList from "./components/contract/ContractList";
+import PrivateRoute from "./components/user_service/PrivateRoute";
 
 function App() {
 
@@ -24,15 +28,21 @@ function App() {
           <Route exact path={["/", '/login']}>
             <Login />
           </Route>
+          <Route path="/logout">
+            <Logout />
+          </Route>
           <Route path="/oauth/kakao/callback">
             <Auth />
           </Route>
           <Route path="/checkUserType">
             <CheckUserType />
           </Route>
-          <Route path="/home">
+          {/* <Route path="/home">
             <Home />
-          </Route>
+          </Route> */}
+          <PrivateRoute path="/home">
+            <Home />
+          </PrivateRoute>
           <Route path="/talentSearch">
             <TalentSearch />
           </Route>
@@ -44,6 +54,12 @@ function App() {
           </Route>
           <Route path="/talentRegister">
             <TalentRegister />
+          </Route>
+          <Route path="/contractRequest">
+            <ContractRequest />
+          </Route>
+          <Route path="/contractList">
+            <ContractList />
           </Route>
         </Switch>
       </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Link} from 'react-router-dom'
 
 const NavBarElement = ({ talents }) => {
   return (<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -15,10 +16,13 @@ const NavBarElement = ({ talents }) => {
             <NavDropdown.Divider />
             <NavDropdown.Item href="#">TBD</NavDropdown.Item>
           </NavDropdown>
-          <Nav.Link href="#">Mypage</Nav.Link>
+          <NavDropdown title="Contract" id="basic-nav-dropdown">
+          <NavDropdown.Item href="/contractList">List</NavDropdown.Item>
+        </NavDropdown>
+          <Nav.Link href="#">MyPage</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href="/">Logout</Nav.Link>
+          <Nav.Link href="/logout">Logout</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Container>

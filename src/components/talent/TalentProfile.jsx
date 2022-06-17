@@ -28,11 +28,10 @@ const TalentProfile = (props) => {
   }
 
   function requestContract() {
-    window.alert("재능인에게 요청 완료");
     console.log("test4 : " + selectOption);
 
     history.push({
-      pathname: "/contract",
+      pathname: "/contractRequest",
       state: { data: data, selectOption: selectOption }
     });
     {console.log("request_data : "+ data.userId)};
