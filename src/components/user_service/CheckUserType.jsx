@@ -33,7 +33,8 @@ const CheckUserType = () => {
           },
 
           // baseURL: 'http://clouddance.hrd-edu.cloudzcp.com',
-          baseURL: 'http://localhost:30080',
+          // baseURL: 'http://localhost:30080',
+          baseUrl: process.env.REACT_APP_USER_SERVICE_SERVER
           //withCredentials: true,
         }
       ).then(function (res) {
