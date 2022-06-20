@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 const TalentInfo = ({ categoryId, userId, title, address, description, options, root }) => {
-
+  
   const history = useHistory();
 
   function onClick(e) {

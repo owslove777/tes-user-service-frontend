@@ -64,7 +64,8 @@ const TalentSearch = () => {
           <div className={styles.talentList}>
           {/* <TalentInfo categoryId={talents[0].categoryId} /> */}
             {talents.map((data) => (
-              <TalentInfo
+              <TalentInfo 
+                key={data.id}
                 categoryId={data.categoryId}
                 userId={data.userId}
                 title={data.title}

@@ -106,6 +106,7 @@ const TalentRegister = () => {
           <h4> 나의 등록 리스트</h4>
           {talent.map((data) => (
             <TalentInfo
+              key={data.id}
               categoryId={data.categoryId}
               userId={data.userId}
               title={data.title}
