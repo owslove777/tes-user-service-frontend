@@ -57,8 +57,8 @@ const TalentProfile = (props) => {
           <h5>내용</h5>
           <p className={styles.description}>{data.description} </p>
           <h5>요청 재능 선택</h5>
-          {talentOption.map(data => (
-            <p>
+          {talentOption.map((data) => (
+            <p key={data.id}>
               <input
                 type="radio"
                 value={data.id}
