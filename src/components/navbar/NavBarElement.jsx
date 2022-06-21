@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import { Link} from 'react-router-dom'
 
-const NavBarElement = ({ talents }) => {
+const NavBarElement = () => {
   return (<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container>
       <Navbar.Brand href="/home">Tes Application</Navbar.Brand>
