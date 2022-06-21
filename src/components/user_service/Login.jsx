@@ -16,7 +16,7 @@ const Login = props => {
           <h3 className={styles.text}>LOGIN</h3>
           <ul className={styles.list}>
             <li className={styles.item}>
-              <a href={KAKAO_AUTH_URL}><img src="kakao_login.png" id="kakao-login-btn" /></a>
+              <a href={KAKAO_AUTH_URL}><img className={styles.button} src="kakao_login.png" id="kakao-login-btn" /></a>
             </li>
           </ul>
 
