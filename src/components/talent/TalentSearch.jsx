@@ -29,15 +29,17 @@ const TalentSearch = () => {
         url
       );
 
-      console.log("res.data : " + res.data);
-      console.log("talents1 : " + talents);
+      console.log("res.data : " + JSON.stringify(res.data));
+      console.log("talents1 : " + JSON.stringify(talents));
 
       if (Array.isArray(res.data)) {
         setTalents(res.data);
+        console.log("if====== : " + talents);
       } else {
         setTalents([res.data]);
+        console.log("2 ");
       }
-      console.log("talents2 : " + talents);
+      console.log("talents2 : " + JSON.stringify(talents));
 
     } catch (err) {
       console.log(err);
@@ -64,7 +66,7 @@ const TalentSearch = () => {
           <div className={styles.talentList}>
           {/* <TalentInfo categoryId={talents[0].categoryId} /> */}
             {talents.map((data) => (
-              <TalentInfo 
+              <TalentInfo
                 key={data.id}
                 categoryId={data.categoryId}
                 userId={data.userId}

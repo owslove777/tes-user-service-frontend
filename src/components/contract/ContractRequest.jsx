@@ -12,7 +12,7 @@ const ContractRequest = () => {
   console.log("selectOption2 : " + location.state.selectOption);
 
   const [contract, setContract] = useState([]);
- 
+
   const postTalents = async () => {
 
     setContract([

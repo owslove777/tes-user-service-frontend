@@ -18,11 +18,13 @@ import PrivateRoute from "./components/user_service/PrivateRoute";
 import StarRatingList from "./components/star_rating/StarRatingList";
 import StarRatingRegister from "./components/star_rating/StarRatingRegister";
 import StarRatingSearch from "./components/star_rating/StarRatingSearch";
+import ContractDetail from "./components/contract/ContractDetail";
+import PaymentRequest from "./components/payment/PaymentRequest";
 
 function App() {
 
   return (
-    <Router> 
+    <Router>
       <div className={styles.nav}>
         <NavBarElement />
       </div>
@@ -72,6 +74,12 @@ function App() {
           </Route>
           <Route path="/starRatingSearch">
             <StarRatingSearch />
+          </Route>
+          <Route path="/contractDetail">
+            <ContractDetail />
+          </Route>
+          <Route path="/paymentRequest">
+            <PaymentRequest />
           </Route>
         </Switch>
       </div>

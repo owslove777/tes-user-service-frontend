@@ -1,10 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import axios from "axios";
-import qs from "qs";
-import { useHistory } from "react-router-dom";
 import styles from "./TalentRegister.module.css"
 import Button from 'react-bootstrap/Button';
 import TalentInfo from './TalentInfo';
+import useDidMountEffect from '../utils/useDidMountEffect';
 
 const TalentRegister = () => {
 
@@ -46,7 +45,7 @@ const TalentRegister = () => {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/user/2251212836"
-        process.env.REACT_APP_TALENT_SERVER+"/talent/talents/user/2251212836"
+        process.env.REACT_APP_TALENT_SERVER + "/talent/talents/user/2251212836"
       );
 
       if (Array.isArray(res.data)) {
@@ -54,10 +53,7 @@ const TalentRegister = () => {
       } else {
         setTalent([res.data]);
       }
-
       console.log("res :" + res.data);
-
-
     } catch (err) {
       console.log(err);
     }
@@ -71,18 +67,16 @@ const TalentRegister = () => {
       const res = await axios.post(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/"
-        process.env.REACT_APP_TALENT_SERVER+"/talent/talents/"
+        process.env.REACT_APP_TALENT_SERVER + "/talent/talents/"
         , register
       );
-
       console.log(res);
-
     } catch (err) {
       console.log(err);
     }
     getTalents();
   };
-  useEffect(() => {
+  useDidMountEffect(() => {
     postTalents();
   }, [register]);
 
@@ -91,15 +85,15 @@ const TalentRegister = () => {
       <section className={styles.talentRegister}>
         <h1 className={styles.title}>재능 등록</h1>
         <div className={styles.talentList}>
-        <h4> 신규 등록</h4>
-          <form calssName={styles.info} onSubmit={onSubmit}>
-            <p>재능인ID (Temp) : <input type="text" name="userId" placeholder="재능인ID" ref={userIdRef} value="2251212836" /> </p>
+          <h4> 신규 등록</h4>
+          <form className={styles.info} onSubmit={onSubmit}>
+            <p>재능인ID (Temp) : <input type="text" name="userId" placeholder="재능인ID" ref={userIdRef} /> </p>
             <p>카테고리 : <input type="text" name="categoryId" placeholder="카테고리" ref={categoryIdRef} /></p>
             <p>활동지역 : <input type="text" name="address" placeholder="주소" ref={addressRef} /></p>
             <p>주제 : <input type="text" name="title" placeholder="주제" ref={titleRef} /></p>
             <p>상세내용 : <input type="text" name="description" placeholder="상세내용" ref={descriptionRef} /></p>
             <p />
-            <Button className={styles.button} as="input" type="submit" value="등록하기" />
+            <Button as="input" type="submit" value="등록하기" />
           </form>
         </div>
         <div className={styles.talentList}>
@@ -116,41 +110,10 @@ const TalentRegister = () => {
               root="Register"
             />
           ))}
-
         </div>
-
-
-
       </section>
-
-
     </>
   )
-
-
 }
 
 export default TalentRegister;
-
-
-;
-
-// "id": 1,
-// "categoryId": 1,
-// "userId": 1,
-// "address": "성남시 분당구",
-// "title": "초급 피아노 강습해드립니다.",
-// "description": "친절하게 잘 가르쳐 드려요",
-// "options": null
-
-
-///
-
-
-// <p /><input className={styles.input} type="text" name="dateTime" placeholder="일시" />
-// <p /><input className={styles.input} type="text" name="price" placeholder="가격" />
-// "id": 1,
-// "talentId": 1,
-// "dateTime": "2022-07-01 17:00:00",
-// "price": 30000,
-// "status": "ON_SALE"
