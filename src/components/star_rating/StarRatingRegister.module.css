@@ -1,0 +1,33 @@
+.starRatingRegister {
+  flex-basis: 100%;
+  min-height: 100%;
+  background-color: white;
+  padding: 0 1em 0 1em;
+}
+
+.info {
+  width: 100%;
+  text-align: left;
+  padding: 2em 1em 0 1em;
+}
+
+.select {
+  width: 5%;
+  margin: 0em 0em 0em 1em;
+}
+
+.starRatingList {
+
+  align-items: center;
+  min-height:236.75px ;
+  max-height:490px;
+  border-radius: 0.2em;
+  margin: 2em 3em 1em 0em;
+  padding: 0.2em 0;
+  /* background-color: yellow; */
+  background: tesWhite;
+  box-shadow: 1px 1px 4px 0px;
+  /* max-width: 30rem; */
+  text-align: left;
+  overflow: auto;
+}

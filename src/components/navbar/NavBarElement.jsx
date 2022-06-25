@@ -18,7 +18,11 @@ const NavBarElement = ({ talents }) => {
           </NavDropdown>
           <NavDropdown title="Contract" id="basic-nav-dropdown">
           <NavDropdown.Item href="/contractList">List</NavDropdown.Item>
-        </NavDropdown>
+          </NavDropdown>
+          <NavDropdown title="StarRating" id="basic-nav-dropdown">
+          <NavDropdown.Item href="/starRatingList">List</NavDropdown.Item>
+          <NavDropdown.Item href="/starRatingSearch">Search</NavDropdown.Item>
+          </NavDropdown>
           <Nav.Link href="#">MyPage</Nav.Link>
         </Nav>
         <Nav>
