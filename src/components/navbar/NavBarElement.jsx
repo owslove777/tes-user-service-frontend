@@ -5,7 +5,6 @@ import { UserContext } from '../../context/UserContext';
 import styles from './NavBarElement.module.css';
 
 const NavBarElement = () => {
-<<<<<<< HEAD
 
   const { userInfo } = useContext(UserContext);
 
