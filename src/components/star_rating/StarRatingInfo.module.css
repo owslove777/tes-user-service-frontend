@@ -1,0 +1,72 @@
+@value tesShadow, tesBlack, tesWhite, tesColorful from '../../common/colors.css';
+
+.starRatingInfo {
+  display: flex;
+  align-items: center;
+  border-radius: 1em;
+  margin: 2em 4em 2em 2em;
+  padding: 0.2em 0;
+  /* background-color: yellow; */
+  background: tesWhite;
+  box-shadow: 6px 6px 8px 0px;
+  /* max-width: 30rem; */
+  text-align: left;
+
+}
+
+.starRatingInfo:hover {
+  transform : scale(1.01);
+  cursor: pointer;
+}
+
+.info {
+  width: 100%;
+}
+
+.avartar {
+  width: 10em;
+  height: 10em;
+  padding: 1em;
+  margin-left: 0.5em;
+  margin-right: 1em;
+  border-radius: 50%;
+
+}
+
+.title,
+.categoryId,
+.userId,
+.address {
+  margin: 0;
+  font-size: 0.8rem;
+  margin-bottom: 0.2em;
+}
+
+.title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.title::after {
+  content: '';
+  display: block;
+  width: 90%;
+  height: 2px;
+  background-color: makerWheat;
+  transform: translateY(0.5em);
+}
+
+
+.starRatingInfo.dark {
+  background-color: tesBlack;
+  color: tesWhite;
+}
+
+.starRatingInfo.light {
+  background-color: tesWhite;
+  color: tesBlack;
+}
+
+.starRatingInfo.colorful {
+  background: tesColorful;
+}

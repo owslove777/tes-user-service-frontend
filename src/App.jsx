@@ -15,6 +15,9 @@ import Logout from "./components/user_service/Logout";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import ContractList from "./components/contract/ContractList";
 import PrivateRoute from "./components/user_service/PrivateRoute";
+import StarRatingList from "./components/star_rating/StarRatingList";
+import StarRatingRegister from "./components/star_rating/StarRatingRegister";
+import StarRatingSearch from "./components/star_rating/StarRatingSearch";
 import ContractDetail from "./components/contract/ContractDetail";
 import PaymentRequest from "./components/payment/PaymentRequest";
 
@@ -83,6 +86,15 @@ function App() {
             <Route path="/paymentRequest">
               <PaymentRequest />
             </Route>
+            <Route path="/starRatingList">
+            <StarRatingList />
+          </Route>
+          <Route path="/starRatingRegister">
+            <StarRatingRegister />
+          </Route>
+          <Route path="/starRatingSearch">
+            <StarRatingSearch />
+          </Route>
           </Switch>
         </div>
       </Router>

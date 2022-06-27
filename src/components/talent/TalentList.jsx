@@ -7,13 +7,13 @@ import TalentInfo from './TalentInfo';
 
 const TalentList = () => {
 
-   
+
   const [talents, setTalents] = useState([]);
 
   const getTalents = async () => {
     try {
       const res = await axios.get(
-        // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
+          // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
           // "http://localhost:30090/talent/talents/" //+categoryId
           process.env.REACT_APP_TALENT_SERVER+"/talent/talents/"
       );
@@ -23,7 +23,7 @@ const TalentList = () => {
       console.log("talents : " + talents);
 
     } catch (err) {
-      console.log(err);    
+      console.log(err);
     }
   };
   useEffect(() => {
@@ -43,7 +43,7 @@ const TalentList = () => {
           ))}
       </section>
   );
-      
+
 };
 
 export default TalentList;

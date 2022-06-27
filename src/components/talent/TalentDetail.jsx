@@ -14,7 +14,7 @@ const TalentDetail = (props) => {
 
   const [talentOption, setTalentOption] = useState([]);
 
-  
+
 
   const getTalents = async () => {
     try {

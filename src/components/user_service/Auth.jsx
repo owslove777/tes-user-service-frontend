@@ -22,7 +22,7 @@ const Auth = () => {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/user/users/login/kakao?code=" + code,
           // "http://localhost:30080/users/login/kakao?code="+code,
-          process.env.REACT_APP_USER_SERVICE_SERVER+"/user/users/login/kakao?code="+code,             // 백엔드 URL정보(임의)
+          process.env.REACT_APP_USER_SERVICE_SERVER+"/users/login/kakao?code="+code,             // 백엔드 URL정보(임의)
         payload
       );
 
@@ -54,7 +54,7 @@ const Auth = () => {
       console.log(err);
       window.alert("로그인 실패");
       history.push("/login");
-      
+
     }
   };
   useEffect(() => {
