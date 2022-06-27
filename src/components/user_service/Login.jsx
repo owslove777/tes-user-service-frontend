@@ -13,7 +13,8 @@ const Login = props => {
     <>
       <section className={styles.login}>
         <section>
-          <h3 className={styles.text}>LOGIN</h3>
+        <h1 className={styles.text}>T E S</h1>
+          <p className={styles.text}><i>Talent Exchange System</i></p>
           <ul className={styles.list}>
             <li className={styles.item}>
               <a href={KAKAO_AUTH_URL}><img className={styles.button} src="kakao_login.png" id="kakao-login-btn" /></a>

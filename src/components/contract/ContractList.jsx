@@ -28,7 +28,7 @@ const ContractList = () => {
   };
   useEffect(() => {
     getContracts();
-  }, []);
+  }, [ContractInfo]);
 
   return (
     <>

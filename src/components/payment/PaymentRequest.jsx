@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-import useDidMountEffect from '../utils/useDidMountEffect';
+import useDidMountEffect from '../../utils/useDidMountEffect';
 import styles from './PaymentRequest.module.css';
 
 const PaymentRequest = (props) => {
@@ -11,7 +11,7 @@ const PaymentRequest = (props) => {
   const [contractStatus, setContractStatus] = useState();
 
   const onClick = () => {
-    setContractStatus("BEFORE_CONTRACT");
+    setContractStatus("PAID");
   }
 
   const putContractStatus = async () => {

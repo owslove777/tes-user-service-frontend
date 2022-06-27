@@ -2,6 +2,7 @@ import { Badge } from 'react-bootstrap';
 import React from 'react';
 import styles from './ContractInfo.module.css';
 import { useHistory } from 'react-router-dom';
+import ContractStatus from './ContractStatus';
 
 const ContractInfo = ({
   id,
@@ -55,26 +56,33 @@ const ContractInfo = ({
         });
       }
     }    
+    else if (contractStatus == "PAID") { //ContractInfo가 re-redering이 필요.. => 날짜도 찍고 하려면 추가 Component 필요할듯..
+      if(window.confirm("계약내용을 수행하셨습니까?")){
+        ContractStatus("1", "PERFORMED");
+      }else{
+        ContractStatus("1", "REJECTED");
+      }
+    }
   }
 
   let setContractStatus;
 
-  if (contractStatus == "BEFORE_CONTRACT") {
-    setContractStatus = <Badge bg="warning">{contractStatus}</Badge>
-  }
-  else if (contractStatus == "ACCEPT_REQUESTED") {
+  if (contractStatus == "ACCEPT_REQUESTED") { //사용자 요청
     setContractStatus = <Badge bg="primary">{contractStatus}</Badge>
   }
-  else if (contractStatus == "ACCEPTED") {
+  else if (contractStatus == "ACCEPTED") {    //재능인 수락
     setContractStatus = <Badge bg="success">{contractStatus} &gt;&gt; 결제하기</Badge>
   }
-  else if (contractStatus == "REJECTED") {
+  else if (contractStatus == "REJECTED") {    //재능인 거절
     setContractStatus = <Badge bg="danger">{contractStatus}</Badge>
   }
-  else if (contractStatus == "PERFORMED") {
+  else if (contractStatus == "PAID") {        //사용자 결제완료
+    setContractStatus = <Badge bg="warning">{contractStatus}</Badge>
+  }
+  else if (contractStatus == "PERFORMED") {   //수행됨
     setContractStatus = <Badge bg="secondary">{contractStatus}</Badge>
   }
-  else if (contractStatus == "CANCELED") {
+  else if (contractStatus == "CANCELED") {    //취소됨
     setContractStatus = <Badge bg="light">{contractStatus}</Badge>
   }
   else {

@@ -10,7 +10,7 @@ const CheckUserType = () => {
   const location = useLocation();
 
   const { id, email, name, imageUrl, status, address, userType } = location.state.userInfo;
-  const [state, setState] = useState({ selectUserType: null });
+  const [state, setState] = useState({ selectUserType: null }); // 불필요여부 확인 및 let
 
   console.log(location.state.userInfo);
 

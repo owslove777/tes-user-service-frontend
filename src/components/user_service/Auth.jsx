@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import qs from "qs";
 import { useHistory } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 
 const Auth = () => {
 
   const history = useHistory();
   const code = new URL(window.location.href).searchParams.get("code");
+
+  const {userInfo, setUserInfo} = useContext(UserContext);
 
   const getToken = async () => {
     const payload = qs.stringify({
@@ -23,9 +26,9 @@ const Auth = () => {
         payload
       );
 
-      console.log(res);
       console.log(res.data);
-      console.log(res.data.id);
+
+      setUserInfo(res.data);
 
       const ACCESS_TOKEN =res;
       console.table(ACCESS_TOKEN);
@@ -33,16 +36,18 @@ const Auth = () => {
       console.log("test4 : " + localStorage.getItem("token"));
 
       if (res.data.userType) {
-        history.push({
-          pathname: "/home",
-          state: { userInfo: res.data }
-        });
+        // history.push({
+        //   pathname: "/home",
+        //   state: { userInfo: res.data }
+        // });
+        history.push("/home");
       }
       else {
-        history.push({
-          pathname: "/checkUserType",
-          state: { userInfo: res.data }
-        });
+        // history.push({
+        //   pathname: "/checkUserType",
+        //   state: { userInfo: res.data }
+        // });
+        history.push("/checkUserType");
       }
 
     } catch (err) {

@@ -1,22 +1,48 @@
-@value mediaQuery from '../../common/size.css';
+@value mediaQuery, tesGreen from '../../common/size.css';
 
 .home{
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* background-color: wheat; */
-
+  background-color: wheat;
 }
 
 .container {
   display: flex;
+  flex-direction :column;
   flex: 1;
   height:10em;
+  flex-basis: 100%;
+  align-items: center;
 }
 
-/* @media screen and (max-width: mediaQuery) {
-  .container {
-    flex-direction: column;
-  }
-} */
+
+.imageProfile {
+  width: 20em;
+  height: 20em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;  
+  border-radius: 50%;  
+}
+
+.imageArea {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.title {
+  width: 100%;
+  height: 50%;
+  display: flex;  
+  text-align: center;
+  justify-content: center;
+  color: tesGreen;
+}
+
+

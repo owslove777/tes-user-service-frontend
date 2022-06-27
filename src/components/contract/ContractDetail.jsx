@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import styles from './ContractDetail.module.css';
 import axios from 'axios';
-import useDidMountEffect from './../utils/useDidMountEffect';
+import useDidMountEffect from '../../utils/useDidMountEffect';
 
 const ContractDetail = (props) => {
 

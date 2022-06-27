@@ -3,7 +3,7 @@ import axios from "axios";
 import styles from "./TalentRegister.module.css"
 import Button from 'react-bootstrap/Button';
 import TalentInfo from './TalentInfo';
-import useDidMountEffect from '../utils/useDidMountEffect';
+import useDidMountEffect from '../../utils/useDidMountEffect';
 
 const TalentRegister = () => {
 
@@ -98,7 +98,7 @@ const TalentRegister = () => {
         </div>
         <div className={styles.talentList}>
           <h4> 나의 등록 리스트</h4>
-          {talent.map((data) => (
+          {talent.map((data) => ( 
             <TalentInfo
               key={data.id}
               categoryId={data.categoryId}
