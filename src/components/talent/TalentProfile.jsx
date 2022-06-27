@@ -81,7 +81,8 @@ const TalentProfile = (props) => {
                 onChange={e => handleClickOption(optionData, e)}
                 disabled={optionData.status == "ON_SALE" ? false : true}
               ></input> 옵션ID : {optionData.id} | 일시 : {optionData.dateTime} | 가격 : {optionData.price} | 상태 : {optionData.status}
-              {console.log("selectOps2 : " + selectOption)}
+              {console.log("selectOps2 : ")}
+              {console.log(selectOption)}
               {console.log("optionData.id2 : " + optionData.id)}
             </p>
           ))}
