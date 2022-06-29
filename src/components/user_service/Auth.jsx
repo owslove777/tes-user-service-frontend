@@ -13,19 +13,15 @@ const Auth = () => {
   const {userInfo, setUserInfo} = useContext(UserContext);
 
   const getToken = async () => {
-    const payload = qs.stringify({
-      code: code
-    });
     try {
       console.log("spot1");
       // access token 가져오기
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/user/users/login/kakao?code=" + code,
           // "http://localhost:30080/users/login/kakao?code="+code,
-          process.env.REACT_APP_USER_SERVICE_SERVER+"/user/users/login/kakao?code="+code,             // 백엔드 URL정보(임의)
-        payload
+          process.env.REACT_APP_USER_SERVICE_SERVER+"/user/users/login/kakao?code="+code
       );
-
+      console.log("spot2");
       console.log(res.data);
 
       setUserInfo(res.data);

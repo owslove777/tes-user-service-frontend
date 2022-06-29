@@ -31,9 +31,7 @@ const Home = () => {
   let userType = null;
 
   if (userInfo.userType == "seller") userType = "재능인(seller)"
-  else userType = "일반인(user)"
-
-
+  else if(userInfo.userType == "user") userType = "일반인(user)"
 
   return (
     <section className={styles.home}>

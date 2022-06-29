@@ -15,8 +15,8 @@ const NavBarElement = () => {
     talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropdwon}>Register (for seller)</NavDropdown.Item>
   }
   else {
-    // talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled}>Register (for seller)</NavDropdown.Item>
-    talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled} disabled>Register (for seller)</NavDropdown.Item>
+    talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled}>Register (for seller)</NavDropdown.Item>
+    // talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled} disabled>Register (for seller)</NavDropdown.Item>
   }
 
   if (userInfo.userType == "user") {
@@ -46,7 +46,7 @@ const NavBarElement = () => {
               <NavDropdown.Item as={Link} to="/starRatingList">List</NavDropdown.Item>
               <NavDropdown.Item as={Link} to="/starRatingSearch">Search</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="#">MyPage</Nav.Link>
+            <Nav.Link as={Link} to="/mypage">MyPage</Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="/logout">Logout</Nav.Link>

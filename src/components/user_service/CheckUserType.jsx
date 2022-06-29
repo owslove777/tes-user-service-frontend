@@ -10,61 +10,59 @@ const CheckUserType = () => {
   const history = useHistory();
   // const location = useLocation();
 
-  const { userInfo } = useContext(UserContext);
+  const { userInfo, setUserInfo } = useContext(UserContext);
   const { id, email, name, imageUrl, status, address, userType } = userInfo;
-  const [state, setState] = useState({ selectUserType: null }); // 불필요여부 확인 및 let
- 
+  // const [state, setState] = useState({ selectUserType: null }); // 불필요여부 확인 및 let
+  let selectUserType = null;
+
+  console.log(address);
   console.log(userInfo);
 
-  const signIn = () => {
+  const signIn = async () => {
 
-    console.log("selectUserType : " + state.selectUserType);
+    const data = {
+      "id": id,
+      "email": email,
+      "name": name,
+      "status": status,
+      "imageUrl": imageUrl,
+      "address": address,
+      "userType": selectUserType
+    };
+
+    console.log("selectUserType : " + selectUserType);
     try {
-      axios(
-        {
-          url: '/user/users/' + id,
-          method: 'PUT',
-          data: {
-            "id": id,
-            "email": email,
-            "name": name,
-            "status": status,
-            "imageUrl": imageUrl,
-            "address": address,
-            "userType": state.selectUserType
-          },
-
-          // baseURL: 'http://clouddance.hrd-edu.cloudzcp.com',
-          // baseURL: 'http://localhost:30080',
-          baseUrl: process.env.REACT_APP_USER_SERVICE_SERVER
-          //withCredentials: true,
-        }
-      ).then(function (res) {
-        console.log(res.data);
-        window.alert("회원가입을 축하드립니다.");
-        history.push({
-          pathname: "/home",
-          state: { userInfo: userInfo, userType: state.selectUserType }
-        });
-      });
+      const res = await axios.put(
+        process.env.REACT_APP_USER_SERVICE_SERVER + '/user/users/' + id,
+        data
+      );
+      console.log(res.data);
+      setUserInfo(res.data);
+      window.alert("회원가입을 축하드립니다.");
+      history.push({
+        pathname: "/home",
+        state: {}
+      })
     } catch (err) {
       console.log(err);
     }
   }
 
   const clickTalent = () => {
-    setState((previousState) => {
-      previousState.selectUserType = "seller";
-      return previousState;
-    });
+    // setState((previousState) => {
+    //   previousState.selectUserType = "seller";
+    //   return previousState;
+    // });
+    selectUserType = "seller";
     signIn();
   }
 
   const clickUser = () => {
-    setState((previousState) => {
-      previousState.selectUserType = "user";
-      return previousState;
-    });
+    // setState((previousState) => {
+    //   previousState.selectUserType = "user";
+    //   return previousState;
+    // });
+    selectUserType = "user";
     signIn();
   }
 
