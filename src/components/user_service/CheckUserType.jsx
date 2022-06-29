@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import axios from "axios";
 import { useHistory, useLocation } from "react-router-dom";
 import styles from "./CheckUserType.module.css";
+import { UserContext } from "../../context/UserContext";
 
 const CheckUserType = () => {
 
   const history = useHistory();
   const location = useLocation();
 
-  const { id, email, name, imageUrl, status, address, userType } = location.state.userInfo;
+  const { userInfo } = useContext(UserContext);
+  const { id, email, name, imageUrl, status, address, userType } = userInfo;
   const [state, setState] = useState({ selectUserType: null }); // 불필요여부 확인 및 let
-
+ 
   console.log(location.state.userInfo);
 
   const signIn = () => {
