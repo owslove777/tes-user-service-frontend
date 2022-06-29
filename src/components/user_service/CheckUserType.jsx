@@ -8,13 +8,13 @@ import { UserContext } from "../../context/UserContext";
 const CheckUserType = () => {
 
   const history = useHistory();
-  const location = useLocation();
+  // const location = useLocation();
 
   const { userInfo } = useContext(UserContext);
   const { id, email, name, imageUrl, status, address, userType } = userInfo;
   const [state, setState] = useState({ selectUserType: null }); // 불필요여부 확인 및 let
  
-  console.log(location.state.userInfo);
+  console.log(userInfo);
 
   const signIn = () => {
 
@@ -44,7 +44,7 @@ const CheckUserType = () => {
         window.alert("회원가입을 축하드립니다.");
         history.push({
           pathname: "/home",
-          state: { userInfo: location.state.userInfo, userType: state.selectUserType }
+          state: { userInfo: userInfo, userType: state.selectUserType }
         });
       });
     } catch (err) {
