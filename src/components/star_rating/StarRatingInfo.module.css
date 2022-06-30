@@ -34,9 +34,9 @@
 }
 
 .title,
-.categoryId,
-.userId,
-.address {
+.talentId,
+.userId ,
+.description{
   margin: 0;
   font-size: 0.8rem;
   margin-bottom: 0.2em;

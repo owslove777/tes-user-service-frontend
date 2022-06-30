@@ -17,6 +17,9 @@ import Button from 'react-bootstrap/Button';
 
   const titleRef = useRef();
   const ratingRef = useRef();
+  const commentRef = useRef();
+
+
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -24,11 +27,10 @@ import Button from 'react-bootstrap/Button';
     setRegister(
       {
         "id": 0,
-        "userId": data.userId,
-        "categoryId": data.categoryId,
-        "title": "요가",
-        "description" : ratingRef.current.value,
-        "options": []
+        "talentId": data.talentId,
+        "title": data.title,
+        "rate" : ratingRef.current.value,
+        "comment" : commentRef.current.value
       }
     )
 
@@ -43,7 +45,7 @@ import Button from 'react-bootstrap/Button';
       const res = await axios.post(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/"
-        process.env.REACT_APP_STAR_RATING_SERVER+"/talent/talents/" // url변경
+        process.env.REACT_APP_STAR_RATING_SERVER+"/star-rate/"
         , register
       );
 
@@ -71,9 +73,8 @@ import Button from 'react-bootstrap/Button';
       <div className={styles.starRatingList}>
       <h4></h4>
         <form className={styles.info} onSubmit={onSubmit}>
-          <p>재능인ID : {data.userId}  </p>
-          <p>카테고리 : {data.categoryId} </p>
-          <p>주제 : {data.title} </p>
+          <p>재능아이디 : {data.talentId} </p>
+          <p>재능명 : {data.title} </p>
           <label>별점 : </label>
           <select className={styles.select} ref={ratingRef}>
             <option value="1"> 1 </option>
@@ -82,6 +83,7 @@ import Button from 'react-bootstrap/Button';
             <option value="4"> 4 </option>
             <option value="5"> 5 </option>
           </select>
+          <p >리뷰 : <input type="text" className={styles.comment} name="comment" placeholder="리뷰를 남겨주세요" ref={commentRef} /></p>
           <p />
           <Button className={styles.button} as="input" type="submit" value="등록하기" />
         </form>

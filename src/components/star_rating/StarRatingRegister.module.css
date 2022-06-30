@@ -11,6 +11,14 @@
   padding: 2em 1em 0 1em;
 }
 
+.comment {
+  width: 20%;
+  height: 20%;
+  text-align: left;
+  margin: 1em 0em 1em 0.5em
+}
+
+
 .select {
   width: 5%;
   margin: 0em 0em 0em 1em;
