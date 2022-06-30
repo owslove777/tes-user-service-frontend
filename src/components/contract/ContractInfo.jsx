@@ -4,6 +4,7 @@ import styles from './ContractInfo.module.css';
 import { useHistory } from 'react-router-dom';
 import ContractStatus from './ContractStatus';
 import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 import { ContractContext } from '../../context/ContractContext';
 
 const ContractInfo = ({
@@ -23,61 +24,66 @@ const ContractInfo = ({
 
   const history = useHistory();
   const { contractStatusContext, setContractStatusContext } = useContext(ContractContext);
+  const { userInfo } = useContext(UserContext);
+
+  console.log(userInfo)
 
   function onClick(e) {
     e.preventDefault();
     console.log("talentId : " + talentId);
     console.log("contractStatus : " + contractStatus);
-    //재능인 조건 추가 필요
-    // if (contractStatus == "PERFORMED") {
-    console.log("contractStatus : " + contractStatus);
-    if (contractStatus == "ACCEPT_REQUESTED") {
-      history.push({
-        pathname: "/contractDetail",
-        state: {
-          id: id,
-          talentItemId: talentItemId,
-          talentId: talentId,
-          talentUserId: talentUserId,
-          talentUserNm: talentUserNm,
-          userId: userId,
-          userNm: userNm,
-          contractStatus: contractStatus,
-          requestDateTime: requestDateTime,
-          acceptedDateTime: acceptedDateTime,
-          rejectedDateTime: rejectedDateTime,
-          performedDateTime: performedDateTime,
-          canceledDateTime: canceledDateTime
-        }
-      });
-    }
-    else if (contractStatus == "ACCEPTED") {
-      if (window.confirm("결제를 진행하시겠습니까?")) {
+
+    if (userInfo.userType == "seller") { // 재능인 처리 가능 상태
+      if (contractStatus == "ACCEPT_REQUESTED") {
         history.push({
-          pathname: "/paymentRequest",
-          state: {id: id}
+          pathname: "/contractDetail",
+          state: {
+            id: id,
+            talentItemId: talentItemId,
+            talentId: talentId,
+            talentUserId: talentUserId,
+            talentUserNm: talentUserNm,
+            userId: userId,
+            userNm: userNm,
+            contractStatus: contractStatus,
+            requestDateTime: requestDateTime,
+            acceptedDateTime: acceptedDateTime,
+            rejectedDateTime: rejectedDateTime,
+            performedDateTime: performedDateTime,
+            canceledDateTime: canceledDateTime
+          }
         });
       }
-    }
-    else if (contractStatus == "PAID") { //ContractInfo가 re-redering이 필요.. => 날짜도 찍고 하려면 추가 Component 필요할듯..
-      if (window.confirm("계약내용을 수행하셨습니까?")) {
-        console.log("id");
-        console.log(id);
-        try {
-          ContractStatus(id, "PERFORMED");
-          setContractStatusContext("PERFORMED")
-          window.alert("수행 완료")
-        } catch (e) {
-          console.log(e)
-        }
+      else if (contractStatus == "PAID") {
+        if (window.confirm("계약내용을 수행하셨습니까?")) {
+          console.log("id");
+          console.log(id);
+          try {
+            ContractStatus(id, "PERFORMED");
+            setContractStatusContext("PERFORMED")
+            window.alert("수행 완료")
+          } catch (e) {
+            console.log(e)
+          }
 
-      } else {
-        try {
-          ContractStatus(id, "CANCELED");
-          setContractStatusContext("CANCELED")
-          window.alert("취소 완료")
-        } catch (e) {
-          console.log(e)
+        } else {
+          try {
+            ContractStatus(id, "CANCELED");
+            setContractStatusContext("CANCELED")
+            window.alert("취소 완료")
+          } catch (e) {
+            console.log(e)
+          }
+        }
+      }
+    }
+    else if (userInfo.userType == "user") { //일반인 처리 가능 상태
+      if (contractStatus == "ACCEPTED") {
+        if (window.confirm("결제를 진행하시겠습니까?")) {
+          history.push({
+            pathname: "/paymentRequest",
+            state: { id: id }
+          });
         }
       }
     }
