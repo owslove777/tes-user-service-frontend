@@ -34,8 +34,9 @@
 }
 
 .title,
-.categoryId,
+.talentId,
 .userId,
+.comment,
 .rating {
   margin: 0;
   font-size: 0.8rem;

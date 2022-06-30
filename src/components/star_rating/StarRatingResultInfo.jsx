@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 
 
-const StarRatingResultInfo = ({ categoryId, userId, title, rating, root }) => {
+const StarRatingResultInfo = ({ talentId, title, rating, comment, root }) => {
 
 
     //  function onClick(e) {
@@ -17,10 +17,10 @@ const StarRatingResultInfo = ({ categoryId, userId, title, rating, root }) => {
       <li className={styles.starRatingResultInfo}>
       <img className={styles.avartar} src="/images/default_profile.png" alt="profile photo" />
       <div className={styles.info}>
-        <h1 className={styles.title}>{title} </h1>
-        <p className={styles.categoryId}>카테고리 : {categoryId} </p>
-        <p className={styles.userId}>재능인 : {userId} </p>
-        <p className={styles.rating}>평점 : {rating} </p>
+        <h1 className={styles.title}> {title} </h1>
+        <p className={styles.talentId}>재능ID : {talentId} </p>
+        <p className={styles.rating}>별점 : {rating} </p>
+        <p className={styles.comment}>리뷰 : {comment} </p>
         <br></br>
       </div>
     </li>

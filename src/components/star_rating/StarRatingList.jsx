@@ -15,7 +15,7 @@ const StarRatingList = () => {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/contract/contracts/"
         // "http://localhost:30100/contract/contracts/"
-        process.env.REACT_APP_STAR_RATING_SERVER+"/talent/talents/"
+        process.env.REACT_APP_TALENT_SERVER+"/talents/"
       );
 
       console.log("res.data : " + JSON.stringify(res.data));
@@ -43,9 +43,10 @@ const StarRatingList = () => {
         {starRatings.map((data) => (
           <StarRatingInfo
           key={data.id}
-          categoryId={data.categoryId}
+          talentId={data.id}
           userId={data.userId}
           title={data.title}
+          description={data.description}
           root="Register"
           />
         ))}

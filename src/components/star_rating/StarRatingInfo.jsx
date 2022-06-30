@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 
 
-const StarRatingInfo = ({ categoryId, userId, title, root }) => {
+const StarRatingInfo = ({ talentId, userId, title, description , root }) => {
 
   const history = useHistory();
 
@@ -14,7 +14,7 @@ const StarRatingInfo = ({ categoryId, userId, title, root }) => {
         if (root == "Register") {
           history.push({
             pathname: "/starRatingRegister",
-            state: { categoryId: categoryId, userId: userId, title: title }
+            state: { talentId: talentId, userId: userId, title: title }
           });
         }
 
@@ -24,9 +24,10 @@ const StarRatingInfo = ({ categoryId, userId, title, root }) => {
     <li className={styles.starRatingInfo} onClick={onClick}>
       <img className={styles.avartar} src="/images/default_profile.png" alt="profile photo" />
       <div className={styles.info}>
-        <h1 className={styles.title}>{title} </h1>
-        <p className={styles.categoryId}>카테고리 : {categoryId} </p>
+        <p className={styles.title}> {title} </p>
+        <p className={styles.talentId}>재능 : {talentId} </p>
         <p className={styles.userId}>재능인 : {userId} </p>
+        <p className={styles.description}>소개 : {description} </p>
         <br></br>
       </div>
     </li>
