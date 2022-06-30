@@ -3,7 +3,7 @@ import React from 'react';
 
 const ContractStatus = async(id, contractStatus) => {
   await axios.put(
-    process.env.REACT_APP_CONTRACT_SERVER + "/contract/contracts/"+id+"/"+contractStatus
+    process.env.REACT_APP_CONTRACT_SERVER + "/contracts/"+id+"/"+contractStatus
   )
 }
 

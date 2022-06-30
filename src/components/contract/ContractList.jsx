@@ -24,7 +24,7 @@ const ContractList = () => {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/contract/contracts/"
         // "http://localhost:30100/contract/contracts/"
-        process.env.REACT_APP_CONTRACT_SERVER + "/contract/contracts/"+uriInfo+"/"+userInfo.id
+        process.env.REACT_APP_CONTRACT_SERVER + "/contracts/"+uriInfo+"/"+userInfo.id
       );
       console.log(res);
 

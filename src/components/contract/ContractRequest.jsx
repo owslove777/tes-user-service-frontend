@@ -44,7 +44,7 @@ const ContractRequest = () => {
       const res = axios.post(
         // "http://clouddance.hrd-edu.cloudzcp.com/contract/contracts/"
         // "http://localhost:30100/contract/contracts/"
-        process.env.REACT_APP_CONTRACT_SERVER + "/contract/contracts/"
+        process.env.REACT_APP_CONTRACT_SERVER + "/contracts/"
         , contract
       );
       console.log(res);

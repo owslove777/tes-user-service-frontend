@@ -33,7 +33,7 @@ const CheckUserType = () => {
     console.log("selectUserType : " + selectUserType);
     try {
       const res = await axios.put(
-        process.env.REACT_APP_USER_SERVICE_SERVER + '/user/users/' + id,
+        process.env.REACT_APP_USER_SERVICE_SERVER + '/users/' + id,
         data
       );
       console.log(res.data);

@@ -23,7 +23,7 @@ const PaymentRequest = (props) => {
       const res = await axios.put(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/"
-        process.env.REACT_APP_CONTRACT_SERVER + "/contract/contracts/"+data.id+"/" + contractStatus
+        process.env.REACT_APP_CONTRACT_SERVER + "/contracts/"+data.id+"/" + contractStatus
       )
       console.log(res);
       window.alert("결제가 완료되었습니다.");

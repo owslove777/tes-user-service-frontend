@@ -15,7 +15,7 @@ const TalentList = () => {
       const res = await axios.get(
           // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
           // "http://localhost:30090/talent/talents/" //+categoryId
-          process.env.REACT_APP_TALENT_SERVER+"/talent/talents/"
+          process.env.REACT_APP_TALENT_SERVER+"/talents/"
       );
 
       console.log("res.data : " + res.data);

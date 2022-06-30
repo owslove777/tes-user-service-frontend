@@ -45,7 +45,7 @@ const TalentRegister = () => {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/user/2251212836"
-        process.env.REACT_APP_TALENT_SERVER + "/talent/talents/user/2251212836"
+        process.env.REACT_APP_TALENT_SERVER + "/talents/user/2251212836"
       );
 
       if (Array.isArray(res.data)) {
@@ -67,7 +67,7 @@ const TalentRegister = () => {
       const res = await axios.post(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/"
-        process.env.REACT_APP_TALENT_SERVER + "/talent/talents/"
+        process.env.REACT_APP_TALENT_SERVER + "/talents/"
         , register
       );
       console.log(res);

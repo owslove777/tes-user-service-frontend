@@ -27,7 +27,7 @@ const ContractDetail = (props) => {
       const res = await axios.put(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/"
-        process.env.REACT_APP_CONTRACT_SERVER + "/contract/contracts/"+data.id+"/" + contractStatus
+        process.env.REACT_APP_CONTRACT_SERVER + "/contracts/"+data.id+"/" + contractStatus
       )
       console.log(res);
       if (contractStatus == "ACCEPTED") window.alert("요청을 수락하셨습니다.");

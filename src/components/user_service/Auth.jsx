@@ -19,7 +19,7 @@ const Auth = () => {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/user/users/login/kakao?code=" + code,
           // "http://localhost:30080/users/login/kakao?code="+code,
-          process.env.REACT_APP_USER_SERVICE_SERVER+"/user/users/login/kakao?code="+code
+          process.env.REACT_APP_USER_SERVICE_SERVER+"/users/login/kakao?code="+code
       );
       console.log("spot2");
       console.log(res.data);

@@ -8,7 +8,7 @@ const TalentSearch = () => {
 
   const [talents, setTalents] = useState([]);
   // const [url, setUrl] = useState("http://localhost:30090/talent/talents/");
-  const [url, setUrl] = useState(process.env.REACT_APP_TALENT_SERVER+"/talent/talents/");
+  const [url, setUrl] = useState(process.env.REACT_APP_TALENT_SERVER+"/talents/");
 
   const cateRef = useRef();
   const addrRef = useRef();
@@ -19,9 +19,9 @@ const TalentSearch = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (cateRef.current.value || addrRef.current.value)
-      setUrl(process.env.REACT_APP_TALENT_SERVER+`/talent/talents/category/${cateRef.current.value}?address=${addrRef.current.value}`)
+      setUrl(process.env.REACT_APP_TALENT_SERVER+`/talents/category/${cateRef.current.value}?address=${addrRef.current.value}`)
     else
-      setUrl(process.env.REACT_APP_TALENT_SERVER+"/talent/talents/");
+      setUrl(process.env.REACT_APP_TALENT_SERVER+"/talents/");
 
     console.log(url);
   }
