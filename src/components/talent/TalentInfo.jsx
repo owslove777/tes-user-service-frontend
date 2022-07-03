@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 
 
-const TalentInfo = ({ categoryId, userId, title, address, description, options, root }) => {
+const TalentInfo = ({ categoryId, userId, title, address, description, options, talentId, root }) => {
   
   const history = useHistory();
 
@@ -14,7 +14,7 @@ const TalentInfo = ({ categoryId, userId, title, address, description, options, 
     if (root == "Search") {
       history.push({
         pathname: "/talentDetail",
-        state: { categoryId: categoryId, userId: userId, title: title, address: address, description: description, options: options }
+        state: { categoryId: categoryId, userId: userId, title: title, address: address, description: description, options: options, talentId: talentId }
       });
     }
   }
