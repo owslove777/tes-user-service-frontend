@@ -15,16 +15,16 @@ const NavBarElement = () => {
     talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropdwon}>Register (for seller)</NavDropdown.Item>
   }
   else {
-    talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled}>Register (for seller)</NavDropdown.Item>
-    // talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled} disabled>Register (for seller)</NavDropdown.Item>
+    // talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled}>Register (for seller)</NavDropdown.Item>
+    talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled} disabled>Register (for seller)</NavDropdown.Item>
   }
 
   if (userInfo.userType == "user") {
     talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropdwon}>Search (for user)</NavDropdown.Item>
   }
   else {
-    talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled}>Search (for user)</NavDropdown.Item>
-    // talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled} disabled>Search (for user)</NavDropdown.Item>
+    // talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled}>Search (for user)</NavDropdown.Item>
+    talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled} disabled>Search (for user)</NavDropdown.Item>
   }
 
   return (
