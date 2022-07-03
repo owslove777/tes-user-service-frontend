@@ -12,9 +12,8 @@ import ContractRequest from "./components/contract/ContractRequest";
 import Logout from "./components/user_service/Logout";
 
 
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import ContractList from "./components/contract/ContractList";
-import PrivateRoute from "./components/user_service/PrivateRoute";
 import StarRatingList from "./components/star_rating/StarRatingList";
 import StarRatingRegister from "./components/star_rating/StarRatingRegister";
 import StarRatingSearch from "./components/star_rating/StarRatingSearch";
@@ -36,7 +35,7 @@ function App() {
         <NavBarElement />
       </div>
     )
-  } 
+  }
 
   return (
     <UserContext.Provider value={{ userInfo, setUserInfo }}>
@@ -57,44 +56,41 @@ function App() {
               <CheckUserType />
             </Route>
             <Route path="/home">
-              <Home />
+              {userInfo.id ? <Home /> : <Redirect to="/login" />}
             </Route>
-            {/* <PrivateRoute path="/home">
-              <Home />
-            </PrivateRoute> */}
             <Route path="/talentSearch">
-              <TalentSearch />
+              {userInfo.id ? <TalentSearch /> : <Redirect to="/login" />}
             </Route>
             <Route path="/talentList">
-              <TalentList />
+              {userInfo.id ? <TalentList /> : <Redirect to="/login" />}
             </Route>
             <Route path="/talentDetail">
-              <TalentDetail />
+              {userInfo.id ? <TalentDetail /> : <Redirect to="/login" />}
             </Route>
             <Route path="/talentRegister">
-              <TalentRegister />
+              {userInfo.id ? <TalentRegister /> : <Redirect to="/login" />}
             </Route>
             <Route path="/contractRequest">
-              <ContractRequest />
+              {userInfo.id ? <ContractRequest /> : <Redirect to="/login" />}
             </Route>
             <Route path="/contractList">
-              <ContractList />
+              {userInfo.id ? <ContractList /> : <Redirect to="/login" />}
             </Route>
             <Route path="/contractDetail">
-              <ContractDetail />
+              {userInfo.id ? <ContractDetail /> : <Redirect to="/login" />}
             </Route>
             <Route path="/paymentRequest">
-              <PaymentRequest />
+              {userInfo.id ? <PaymentRequest /> : <Redirect to="/login" />}
             </Route>
             <Route path="/starRatingList">
-            <StarRatingList />
-          </Route>
-          <Route path="/starRatingRegister">
-            <StarRatingRegister />
-          </Route>
-          <Route path="/starRatingSearch">
-            <StarRatingSearch />
-          </Route>
+              {userInfo.id ? <StarRatingList /> : <Redirect to="/login" />}
+            </Route>
+            <Route path="/starRatingRegister">
+              {userInfo.id ? <StarRatingRegister /> : <Redirect to="/login" />}
+            </Route>
+            <Route path="/starRatingSearch">
+              {userInfo.id ? <StarRatingSearch /> : <Redirect to="/login" />}
+            </Route>
           </Switch>
         </div>
       </Router>
