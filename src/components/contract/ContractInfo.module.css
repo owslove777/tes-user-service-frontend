@@ -20,6 +20,7 @@
 
 .info {
   width: 100%;
+  height : 100%;
 }
 
 .avartar {
@@ -42,7 +43,7 @@
 
 .title {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
+  margin: 0rem 0 1rem 0;
 }
 
 .title::after {
@@ -58,7 +59,7 @@
  {
   text-align: right; 
   font-size: 0.8rem;
-  margin: 0 2.5em 0.3em 0;
+  margin: 2em 2.5em 0.3em 0;
 }
 
 .badgeStyle {

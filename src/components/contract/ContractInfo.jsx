@@ -90,18 +90,34 @@ const ContractInfo = ({
   }
 
   let drawContractStatus;
+  let drawButton;
 
   if (contractStatus == "ACCEPT_REQUESTED") { //사용자 요청
-    drawContractStatus = <Badge bg="primary">{contractStatus}</Badge>
+    if(userInfo.userType == "user"){
+      drawContractStatus = <Badge bg="primary">{contractStatus}</Badge>
+      drawButton = <Badge bg="primary"> &gt;&gt;요청내용 확인하기</Badge>
+    }
+    else if(userInfo.userType == "user")
+      drawContractStatus = <Badge bg="primary">{contractStatus}</Badge>
   }
   else if (contractStatus == "ACCEPTED") {    //재능인 수락
-    drawContractStatus = <Badge bg="success">{contractStatus} &gt;&gt; 결제하기</Badge>
+    if(userInfo.userType == "seller")
+      drawContractStatus = <Badge bg="success">{contractStatus}</Badge>
+    else if(userInfo.userType == "user"){
+      drawContractStatus = <Badge bg="success">{contractStatus} </Badge>    
+      drawButton = <Badge bg="success"> &gt;&gt;결제하기</Badge>
+    }
   }
   else if (contractStatus == "REJECTED") {    //재능인 거절
     drawContractStatus = <Badge bg="danger">{contractStatus}</Badge>
   }
   else if (contractStatus == "PAID") {        //사용자 결제완료
-    drawContractStatus = <Badge bg="warning">{contractStatus}</Badge>
+    if(userInfo.userType == "seller"){
+      drawContractStatus = <Badge bg="warning">{contractStatus} </Badge>
+      drawButton = <Badge bg="warning"> &gt;&gt;수행여부 확인하기</Badge>
+    }
+    else if(userInfo.userType == "user")
+      drawContractStatus = <Badge bg="warning">{contractStatus}</Badge>
   }
   else if (contractStatus == "PERFORMED") {   //수행됨
     drawContractStatus = <Badge bg="secondary">{contractStatus}</Badge>
@@ -119,10 +135,12 @@ const ContractInfo = ({
       <div className={styles.info}>
         <h1 className={styles.title}>Title : {talentId} </h1>
         <p className={styles.talentItemId}>재능옵션 : {talentItemId}</p>
-        <p className={styles.talentUserNm}>재능인명 : {talentUserNm} </p>
-        <p className={styles.userNm}>요청인명 : {userNm} </p>
+        <p className={styles.talentUserNm}>재능인명 : {talentUserNm} [ID : {talentUserId}]</p>
+        <p className={styles.userNm}>요청인명 : {userNm} [ID : {userId}]</p>
+        </div><div className={styles.info}>
         <p className={styles.requestDateTime}>요청일시 : {requestDateTime}</p>
         <p className={styles.badgeStyle}>{drawContractStatus}</p>
+        <p className={styles.badgeStyle}>{drawButton}</p>
         <br></br>
       </div>
     </li>
