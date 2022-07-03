@@ -93,7 +93,7 @@ const ContractInfo = ({
   let drawButton;
 
   if (contractStatus == "ACCEPT_REQUESTED") { //사용자 요청
-    if(userInfo.userType == "user"){
+    if(userInfo.userType == "seller"){
       drawContractStatus = <Badge bg="primary">{contractStatus}</Badge>
       drawButton = <Badge bg="primary"> &gt;&gt;요청내용 확인하기</Badge>
     }
@@ -101,7 +101,7 @@ const ContractInfo = ({
       drawContractStatus = <Badge bg="primary">{contractStatus}</Badge>
   }
   else if (contractStatus == "ACCEPTED") {    //재능인 수락
-    if(userInfo.userType == "seller")
+    if(userInfo.userType == "user")
       drawContractStatus = <Badge bg="success">{contractStatus}</Badge>
     else if(userInfo.userType == "user"){
       drawContractStatus = <Badge bg="success">{contractStatus} </Badge>    
