@@ -20,7 +20,9 @@ const ContractInfo = ({
   acceptedDateTime,
   rejectedDateTime,
   performedDateTime,
-  canceledDateTime }) => {
+  canceledDateTime,
+  title,
+  price }) => {
 
   const history = useHistory();
   const { contractStatusContext, setContractStatusContext } = useContext(ContractContext);
@@ -50,7 +52,9 @@ const ContractInfo = ({
             acceptedDateTime: acceptedDateTime,
             rejectedDateTime: rejectedDateTime,
             performedDateTime: performedDateTime,
-            canceledDateTime: canceledDateTime
+            canceledDateTime: canceledDateTime,
+            title: title,
+            price: price
           }
         });
       }
@@ -78,11 +82,19 @@ const ContractInfo = ({
       }
     }
     else if (userInfo.userType == "user") { //일반인 처리 가능 상태
+      console.log("price");
+      console.log(price);
       if (contractStatus == "ACCEPTED") {
         if (window.confirm("결제를 진행하시겠습니까?")) {
           history.push({
             pathname: "/paymentRequest",
-            state: { id: id }
+            state: { 
+              id: id, 
+              title: title, 
+              talentUserNm: talentUserNm,
+              talentItemId: talentItemId, 
+              acceptedDateTime: acceptedDateTime, 
+              price: price }
           });
         }
       }
@@ -133,7 +145,8 @@ const ContractInfo = ({
     <li className={styles.contractInfo} onClick={onClick}>
       <img className={styles.avartar} src="/images/default_profile.png" alt="profile photo" />
       <div className={styles.info}>
-        <h1 className={styles.title}>Title : {talentId} </h1>
+        <h1 className={styles.title}>Title : {title} </h1>
+        <p className={styles.talentId}>재능ID : {talentId} </p>
         <p className={styles.talentItemId}>재능옵션 : {talentItemId}</p>
         <p className={styles.talentUserNm}>재능인명 : {talentUserNm} [ID : {talentUserId}]</p>
         <p className={styles.userNm}>요청인명 : {userNm} [ID : {userId}]</p>
