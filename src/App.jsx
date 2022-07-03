@@ -19,6 +19,7 @@ import StarRatingRegister from "./components/star_rating/StarRatingRegister";
 import StarRatingSearch from "./components/star_rating/StarRatingSearch";
 import ContractDetail from "./components/contract/ContractDetail";
 import PaymentRequest from "./components/payment/PaymentRequest";
+import MyPage from "./components/my_page/MyPage";
 
 import React, { useContext, useState } from 'react';
 
@@ -90,6 +91,9 @@ function App() {
             </Route>
             <Route path="/starRatingSearch">
               {userInfo.id ? <StarRatingSearch /> : <Redirect to="/login" />}
+            </Route>
+            <Route path="/myPage">
+              {userInfo.id ? <MyPage /> : <Redirect to="/login" />}
             </Route>
           </Switch>
         </div>
