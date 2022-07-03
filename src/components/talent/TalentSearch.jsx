@@ -78,6 +78,7 @@ const TalentSearch = () => {
                 address={data.address}
                 description={data.description}
                 options={data.options}
+                talentId={data.id}
                 root="Search"
               />
             ))}
