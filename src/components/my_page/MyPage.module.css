@@ -1,0 +1,31 @@
+.myPage{
+  width: 100%;
+  height: 100%;
+
+  flex-direction: column;
+  background-color: white;
+}
+
+.imageArea{
+  display: flex;
+}
+
+.imageProfile {
+  width: 12em;
+  height: 12em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;  
+  border-radius: 20%;  
+}
+
+.useInfo {
+
+}
+
+.infoArea {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
