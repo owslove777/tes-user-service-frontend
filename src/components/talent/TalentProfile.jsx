@@ -22,7 +22,7 @@ const TalentProfile = (props) => {
 
   let button = null;
 
-  if (userInfo.userType == "seller" & buttonOnoff) { // user이면서 요청재능 선택시, 버튼 활성화
+  if (userInfo.userType == "user" & buttonOnoff) { // user이면서 요청재능 선택시, 버튼 활성화
     button = <Button className={styles.button} as="input" type="submit" value="요청하기" onClick={requestContract} />
   } else { // 그외 비활성화
     button = <Button className={styles.button} as="input" type="submit" value="요청하기" onClick={requestContract} disabled />

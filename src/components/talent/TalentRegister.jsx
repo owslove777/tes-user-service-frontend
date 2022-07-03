@@ -71,9 +71,12 @@ const TalentRegister = () => {
         , register
       );
       console.log(res);
+      window.alert("재능 등록 완료");
     } catch (err) {
       console.log(err);
+      window.alert("재능 등록 오류");
     }
+
     getTalents();
   };
   useDidMountEffect(() => {
