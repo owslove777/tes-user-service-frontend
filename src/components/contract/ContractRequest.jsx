@@ -28,7 +28,9 @@ const ContractRequest = () => {
       "acceptedDateTime": null,
       "rejectedDateTime": null,
       "performedDateTime": location.state.selectOption.dateTime,
-      "canceledDateTime": null
+      "canceledDateTime": null,
+      "title": location.state.data.title,
+      "price": location.state.selectOption.price
     }
 
     console.log("contract");
