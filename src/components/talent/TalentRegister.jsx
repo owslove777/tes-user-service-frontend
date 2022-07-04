@@ -4,11 +4,14 @@ import styles from "./TalentRegister.module.css"
 import Button from 'react-bootstrap/Button';
 import TalentInfo from './TalentInfo';
 import useDidMountEffect from '../../utils/useDidMountEffect';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 const TalentRegister = () => {
 
   const [talent, setTalent] = useState([]);
   const [register, setRegister] = useState([]);
+  const {userInfo} = useContext(UserContext);
 
   const userIdRef = useRef();
   const categoryIdRef = useRef();
@@ -22,7 +25,7 @@ const TalentRegister = () => {
     setRegister(
       {
         "id": 0,
-        "userId": userIdRef.current.value,
+        "userId": userInfo.id,
         "categoryId": categoryIdRef.current.value,
         "address": addressRef.current.value,
         "title": titleRef.current.value,
@@ -45,7 +48,7 @@ const TalentRegister = () => {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/user/2251212836"
-        process.env.REACT_APP_TALENT_SERVER + "/talents/user/2251212836"
+        process.env.REACT_APP_TALENT_SERVER + "/talents/user/"+userInfo.id
       );
 
       if (Array.isArray(res.data)) {
@@ -90,7 +93,7 @@ const TalentRegister = () => {
         <div className={styles.talentList}>
           <h4> 신규 등록</h4>
           <form className={styles.info} onSubmit={onSubmit}>
-            <p>재능인ID (Temp) : <input type="text" name="userId" placeholder="재능인ID" ref={userIdRef} /> </p>
+            <p>재능인 : {userInfo.name}  [ID : {userInfo.id}] </p>
             <p>카테고리 : <input type="text" name="categoryId" placeholder="카테고리" ref={categoryIdRef} /></p>
             <p>활동지역 : <input type="text" name="address" placeholder="주소" ref={addressRef} /></p>
             <p>주제 : <input type="text" name="title" placeholder="주제" ref={titleRef} /></p>

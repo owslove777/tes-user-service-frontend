@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
+import { UserContext } from '../../context/UserContext';
 import styles from './TalentDetail.module.css';
 import TalentProfile from './TalentProfile';
 
@@ -14,7 +15,17 @@ const TalentDetail = (props) => {
 
   const [talentOption, setTalentOption] = useState([]);
 
+  const {userInfo} = useContext(UserContext);
+  console.log(userInfo);
 
+  const popAlert = () => {
+    if(userInfo.userType == "seller") {
+      window.alert("재능인은 조회만 가능합니다.");    
+    }
+  }
+  useEffect(()=>{
+    popAlert();
+  }, []);
 
   const getTalents = async () => {
     try {
