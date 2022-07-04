@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import styles from './TalentSearch.module.css'
 import TalentInfo from './TalentInfo';
-import { UserContext } from '../../context/UserContext';
 
 const TalentSearch = () => {
 
@@ -12,9 +11,6 @@ const TalentSearch = () => {
 
   const cateRef = useRef();
   const addrRef = useRef();
-
-  const userInfomation = useContext(UserContext);
-  console.log(userInfomation);
 
   const onSubmit = (e) => {
     e.preventDefault();

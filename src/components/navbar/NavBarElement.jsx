@@ -23,8 +23,8 @@ const NavBarElement = () => {
     talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropdwon}>Search (for user)</NavDropdown.Item>
   }
   else {
-    // talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled}>Search (for user)</NavDropdown.Item>
-    talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled} disabled>Search (for user)</NavDropdown.Item>
+    talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled}>Search</NavDropdown.Item>
+    // talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled} disabled>Search (for user)</NavDropdown.Item>
   }
 
   return (
