@@ -46,6 +46,8 @@ const StarRatingSearch = () => {
           title={data.title}
           rating={data.rate}
           comment={data.comment}
+          requestUserId={data.requestUserId}
+          rateDate={data.rateDate}
           root="Search"
           />
         ))}
