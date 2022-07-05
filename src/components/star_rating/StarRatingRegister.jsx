@@ -3,6 +3,8 @@ import axios from "axios";
 import { useHistory ,useLocation } from "react-router-dom";
 import styles from "./StarRatingRegister.module.css"
 import Button from 'react-bootstrap/Button';
+import { useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
 
 
   const StarRatingRegister = () => {
@@ -11,9 +13,11 @@ import Button from 'react-bootstrap/Button';
   const data = location.state;
   const history = useHistory();
 
+
   console.log("data (StarRatingRegister) : " + JSON.stringify(data));
 
   const [register, setRegister] = useState([]);
+  const {userInfo} = useContext(UserContext); //branch 추가
 
   const titleRef = useRef();
   const ratingRef = useRef();
@@ -30,11 +34,14 @@ import Button from 'react-bootstrap/Button';
         "talentId": data.talentId,
         "title": data.title,
         "rate" : ratingRef.current.value,
-        "comment" : commentRef.current.value
+        "comment" : commentRef.current.value,
+        "requestUserId": userInfo.id,
+        "sellerId": data.userId
       }
     )
 
-    console.log(ratingRef.current.value)
+    console.log("requestUserId" , userInfo.id)
+    console.log("sellerId" , data.userId)
     alert("리뷰가 등록되었습니다");
 
   }
