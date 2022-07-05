@@ -15,39 +15,53 @@ const PaymentRequest = (props) => {
   console.log(data);
 
   const onClick = () => {
-    setContractStatus("PAID");
+    // setContractStatus("PAID");
+    postPayment();
   }
 
   const postPayment = async () => {
-    // try {
-    //   const res = await axios.post(
-
-    //   )
-    // }
-
-  }
-
-  const putContractStatus = async () => {
     try {
-      const res = await axios.put(
-        // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
-        // "http://localhost:30090/talent/talents/"
-        process.env.REACT_APP_CONTRACT_SERVER + "/contracts/" + data.id + "/" + contractStatus
+      const res = await axios.post(
+        process.env.REACT_APP_PAYMENT_SERVER + "/payment",
+        {
+          contractId : data.id,
+          amount : data.price
+        }
       )
       console.log(res);
       window.alert("결제가 완료되었습니다.");
-    } catch (err) {
-      console.log(err);
+    }catch(e){
+      console.log(e);
       window.alert("결제오류가 발생했습니다.");
     }
     history.push({
       pathname: "/contractList",
       state: {}
     });
-  };
-  useDidMountEffect(() => {
-    putContractStatus();
-  }, [contractStatus]);
+
+  }
+
+  // const putContractStatus = async () => {
+  //   try {
+  //     const res = await axios.put(
+  //       // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
+  //       // "http://localhost:30090/talent/talents/"
+  //       process.env.REACT_APP_CONTRACT_SERVER + "/contracts/" + data.id + "/" + contractStatus
+  //     )
+  //     console.log(res);
+  //     window.alert("결제가 완료되었습니다.");
+  //   } catch (err) {
+  //     console.log(err);
+  //     window.alert("결제오류가 발생했습니다.");
+  //   }
+  //   history.push({
+  //     pathname: "/contractList",
+  //     state: {}
+  //   });
+  // };
+  // useDidMountEffect(() => {
+  //   putContractStatus();
+  // }, [contractStatus]);
 
   return (
     <section className={styles.paymentRequest}>
