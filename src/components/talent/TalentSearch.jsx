@@ -76,8 +76,9 @@ const TalentSearch = () => {
         <h1 className={styles.title}>재능인 조회</h1>
         <form onSubmit={onSubmit}>
           {/* <input className={styles.input} type="text" name="categoryId" placeholder="카테고리(필수)" ref={cateRef} /> */}
+          <span>카테고리 : </span>
           <select onChange={e => handleClickOption(e)}>
-            <option defaultValue="">카테고리</option>
+            <option defaultValue="" value="">ALL(*)</option>
             {category.map((option) => (
               <option
                 key={option.categoryId}
@@ -85,7 +86,8 @@ const TalentSearch = () => {
               >{option.categoryName}</option>
             ))}
           </select>
-          <input className={styles.input} type="text" name="address" placeholder="지역(선택)" ref={addrRef} />
+          <span> 지역 : </span>
+          <input className={styles.input} type="text" name="address" placeholder="ex) 판교" ref={addrRef} />
           <button
             className={styles.button}
             type="submit">
