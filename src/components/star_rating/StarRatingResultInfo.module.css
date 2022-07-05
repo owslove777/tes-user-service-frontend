@@ -37,7 +37,9 @@
 .talentId,
 .userId,
 .comment,
-.rating {
+.rating ,
+.rateDate,
+.requestUserId{
   margin: 0;
   font-size: 0.8rem;
   margin-bottom: 0.2em;
