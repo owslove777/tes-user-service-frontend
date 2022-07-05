@@ -4,6 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import styles from './ContractDetail.module.css';
 import axios from 'axios';
 import useDidMountEffect from '../../utils/useDidMountEffect';
+import ContractStatus from './ContractStatus';
 
 const ContractDetail = (props) => {
 
@@ -24,12 +25,14 @@ const ContractDetail = (props) => {
 
   const putContractStatus = async () => {
     try {
-      const res = await axios.put(
-        // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
-        // "http://localhost:30090/talent/talents/"
-        process.env.REACT_APP_CONTRACT_SERVER + "/contracts/"+data.id+"/" + contractStatus
-      )
-      console.log(res);
+      // const res = await axios.put(
+      //   // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
+      //   // "http://localhost:30090/talent/talents/"
+      //   process.env.REACT_APP_CONTRACT_SERVER + "/contracts/"+data.id+"/" + contractStatus
+      // )
+      // console.log(res);
+      ContractStatus(data.id, contractStatus); // axios.put component
+      
       if (contractStatus == "ACCEPTED") window.alert("요청을 수락하셨습니다.");
       else if (contractStatus == "REJECTED") window.alert("요청을 거절하셨습니다.");
     } catch (err) {
