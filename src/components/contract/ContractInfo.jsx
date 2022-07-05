@@ -22,7 +22,8 @@ const ContractInfo = ({
   performedDateTime,
   canceledDateTime,
   title,
-  price }) => {
+  price,
+  address }) => {
 
   const history = useHistory();
   const { contractStatusContext, setContractStatusContext } = useContext(ContractContext);
@@ -54,7 +55,8 @@ const ContractInfo = ({
             performedDateTime: performedDateTime,
             canceledDateTime: canceledDateTime,
             title: title,
-            price: price
+            price: price,
+            address
           }
         });
       }

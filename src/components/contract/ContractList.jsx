@@ -68,6 +68,7 @@ const ContractList = () => {
                 canceledDateTime={data.canceledDateTime}
                 title={data.title}
                 price={data.price}
+                address={data.address}
               />
             </ContractContext.Provider>
           ))}
