@@ -17,7 +17,7 @@ import { UserContext } from '../../context/UserContext';
   console.log("data (StarRatingRegister) : " + JSON.stringify(data));
 
   const [register, setRegister] = useState([]);
-  const {userInfo} = useContext(UserContext); //추가
+  const {userInfo} = useContext(UserContext); //branch 추가
 
   const titleRef = useRef();
   const ratingRef = useRef();
