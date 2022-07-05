@@ -14,8 +14,10 @@ const TalentSearch = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (cateRef.current.value || addrRef.current.value)
+    if (cateRef.current.value)
       setUrl(process.env.REACT_APP_TALENT_SERVER+`/talents/category/${cateRef.current.value}?address=${addrRef.current.value}`)
+    else if (!cateRef.current.value && addrRef.current.value)
+      window.alert("검색시, 카테고리는 필수로 입력해주세요.");
     else
       setUrl(process.env.REACT_APP_TALENT_SERVER+"/talents/");
 
@@ -55,8 +57,8 @@ const TalentSearch = () => {
       <div className={styles.talentSearchBox}>
           <h1 className={styles.title}>재능인 조회</h1>
           <form onSubmit={onSubmit}>
-            <input className={styles.input} type="text" name="categoryId" placeholder="카테고리" ref={cateRef} />
-            <input className={styles.input} type="text" name="address" placeholder="주소" ref={addrRef} />
+            <input className={styles.input} type="text" name="categoryId" placeholder="카테고리(필수)" ref={cateRef} />
+            <input className={styles.input} type="text" name="address" placeholder="주소(선택)" ref={addrRef} />
             <button
               className={styles.button}
               type="submit">
