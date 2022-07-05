@@ -28,7 +28,7 @@ const NavBarElement = () => {
   }
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"> 
       <Container>
         <Navbar.Brand as={Link} to="/home">Tes Application</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
