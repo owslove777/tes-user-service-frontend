@@ -11,22 +11,50 @@ const TalentRegister = () => {
 
   const [talent, setTalent] = useState([]);
   const [register, setRegister] = useState([]);
-  const {userInfo} = useContext(UserContext);
+  const [category, setCategory] = useState([]);
+  const { userInfo } = useContext(UserContext);
 
-  const userIdRef = useRef();
-  const categoryIdRef = useRef();
+  const categoryRef = useRef();
   const addressRef = useRef();
   const titleRef = useRef();
   const descriptionRef = useRef();
 
+
+  const validationCheck = () => {
+
+    let validation = true;
+
+    if(!categoryRef.current.value){
+      window.alert("카테고리를 입력하세요.")
+      validation = false;
+    }else if(!addressRef.current.value){
+      window.alert("활동지역을 입력하세요.")
+      validation = false;
+    }else if(!titleRef.current.value){
+      window.alert("주제를 입력하세요.")
+      validation = false;
+    }else if(!titleRef.current.value){
+      window.alert("주제를 입력하세요.")
+      validation = false;
+    }else if(!descriptionRef.current.value){
+      window.alert("상세내용을 입력하세요.")
+      validation = false;
+    }
+
+    return validation;
+
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if(!validationCheck()) return ;
 
     setRegister(
       {
         "id": 0,
         "userId": userInfo.id,
-        "categoryId": categoryIdRef.current.value,
+        "categoryId": categoryRef.current.value,
         "address": addressRef.current.value,
         "title": titleRef.current.value,
         "description": descriptionRef.current.value,
@@ -43,12 +71,28 @@ const TalentRegister = () => {
     )
   }
 
+  const getTalentCategory = async () => {
+    try {
+      const res = await axios.get(
+        process.env.REACT_APP_TALENT_SERVER + '/category'
+      )
+      console.log("res");
+      console.log(res.data);
+      setCategory(res.data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+  useEffect(() => {
+    getTalentCategory();
+  }, []);
+
   const getTalents = async () => {
     try {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/user/2251212836"
-        process.env.REACT_APP_TALENT_SERVER + "/talents/user/"+userInfo.id
+        process.env.REACT_APP_TALENT_SERVER + "/talents/user/" + userInfo.id
       );
 
       if (Array.isArray(res.data)) {
@@ -94,7 +138,17 @@ const TalentRegister = () => {
           <h4> 신규 등록</h4>
           <form className={styles.info} onSubmit={onSubmit}>
             <p>재능인 : {userInfo.name}  [ID : {userInfo.id}] </p>
-            <p>카테고리 : <input type="text" name="categoryId" placeholder="카테고리" ref={categoryIdRef} /></p>
+            {/* <p>카테고리 : <input type="text" name="categoryId" placeholder="카테고리" ref={categoryRef} /></p> */}
+            <span>카테고리 : </span>
+            <select ref={categoryRef}>
+              <option defaultValue="" value="" ></option>
+              {category.map((option) => (
+                <option
+                  key={option.categoryId}
+                  value={option.categoryId}
+                >{option.categoryName}</option>
+              ))}
+            </select>
             <p>활동지역 : <input type="text" name="address" placeholder="주소" ref={addressRef} /></p>
             <p>주제 : <input type="text" name="title" placeholder="주제" ref={titleRef} /></p>
             <p>상세내용 : <input type="text" name="description" placeholder="상세내용" ref={descriptionRef} /></p>
@@ -104,7 +158,7 @@ const TalentRegister = () => {
         </div>
         <div className={styles.talentList}>
           <h4> 나의 등록 리스트</h4>
-          {talent.map((data) => ( 
+          {talent.map((data) => (
             <TalentInfo
               key={data.id}
               categoryId={data.categoryId}

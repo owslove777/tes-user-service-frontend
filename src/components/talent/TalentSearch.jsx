@@ -10,22 +10,17 @@ const TalentSearch = () => {
   const [url, setUrl] = useState(process.env.REACT_APP_TALENT_SERVER + "/talents/");
   const [category, setCategory] = useState([]);
 
-  const [checkCategory, setCheckCategory] = useState();
+  const categoryRef = useRef();
   const addrRef = useRef();
-
-  const handleClickOption = (e) => {
-    setCheckCategory(e.target.value);
-  }
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (checkCategory)
-      setUrl(process.env.REACT_APP_TALENT_SERVER + `/talents/category/${checkCategory}?address=${addrRef.current.value}`)
-    else if (!checkCategory && addrRef.current.value)
+    if (categoryRef.current.value)
+      setUrl(process.env.REACT_APP_TALENT_SERVER + `/talents/category/${categoryRef.current.value}?address=${addrRef.current.value}`)
+    else if (!categoryRef.current.value && addrRef.current.value)
       window.alert("지역검색시, 카테고리는 필수로 입력해주세요.");
     else
       setUrl(process.env.REACT_APP_TALENT_SERVER + "/talents/");
-
 
     console.log(url);
   }
@@ -39,7 +34,7 @@ const TalentSearch = () => {
       console.log(res.data);
       setCategory(res.data);
     } catch (e) {
-
+      console.log(e);
     }
   }
   useEffect(() => {
@@ -77,7 +72,7 @@ const TalentSearch = () => {
         <form onSubmit={onSubmit}>
           {/* <input className={styles.input} type="text" name="categoryId" placeholder="카테고리(필수)" ref={cateRef} /> */}
           <span>카테고리 : </span>
-          <select onChange={e => handleClickOption(e)}>
+          <select ref={categoryRef}>
             <option defaultValue="" value="">ALL(*)</option>
             {category.map((option) => (
               <option
