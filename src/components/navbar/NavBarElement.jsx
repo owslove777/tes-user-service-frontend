@@ -8,29 +8,30 @@ const NavBarElement = () => {
 
   const { userInfo } = useContext(UserContext);
 
+  let navBarBgColor = null;
   let talentRegister = null;
   let talentSearch = null;
+  let showUserType = null;
 
   if (userInfo.userType == "seller") {
+    navBarBgColor = "dark"
     talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropdwon}>Register (for seller)</NavDropdown.Item>
+    talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled}>Search</NavDropdown.Item>
+    showUserType = <Nav.Link>[재능인 계정] </Nav.Link>
   }
-  else {
+  else if (userInfo.userType == "user") {
+    navBarBgColor = "success"
     // talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled}>Register (for seller)</NavDropdown.Item>
     talentRegister = <NavDropdown.Item as={Link} to="/talentRegister" id={styles.navDropDisabled} disabled>Register (for seller)</NavDropdown.Item>
-  }
-
-  if (userInfo.userType == "user") {
     talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropdwon}>Search (for user)</NavDropdown.Item>
-  }
-  else {
-    talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled}>Search</NavDropdown.Item>
-    // talentSearch = <NavDropdown.Item as={Link} to="/talentSearch" id={styles.navDropDisabled} disabled>Search (for user)</NavDropdown.Item>
+    showUserType = <Nav.Link >[일반인 계정] </Nav.Link>
   }
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark"> 
+    <Navbar collapseOnSelect expand="lg" bg={navBarBgColor} variant="dark"> 
+    {/* <Navbar bg="primary" variant="dark"> */}
       <Container>
-        <Navbar.Brand as={Link} to="/home">Tes Application</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/home"><h4>T E S</h4></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -49,6 +50,7 @@ const NavBarElement = () => {
             <Nav.Link as={Link} to="/mypage">MyPage</Nav.Link>
           </Nav>
           <Nav>
+            {showUserType}
             <Nav.Link href="/logout">Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
