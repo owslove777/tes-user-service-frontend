@@ -12,6 +12,21 @@ const MyPage = () => {
 
   console.log("userInfo");
   console.log(userInfo);
+
+  let showActivity = [];
+
+  if (userInfo.userType == "seller"){
+    showActivity[0] = <p>마지막 업데이트 일시 : {myPageInfo.lastServiceDate} </p>
+    showActivity[1] = <p>받은요청 종료 건수 : {myPageInfo.userRequestCntDone} </p>
+    showActivity[2] = <p>총 받은요청 건수 : {myPageInfo.userRequestCntTotal} </p>    
+    showActivity[3] = <p>총 별점 개수 : {myPageInfo.myServiceCnt} </p>
+    showActivity[4] = <p>총 별점 평균 : {myPageInfo.myServiceRate} </p>
+    
+  } else if (userInfo.userType == "user"){
+    showActivity[0] = <p>마지막 업데이트 일시 : {myPageInfo.lastServiceDate} </p>
+    showActivity[1] = <p>요청의뢰 종료 건수 : {myPageInfo.myRequestCntDone}</p>
+    showActivity[2] = <p>총 요청의뢰 건수 : {myPageInfo.myRequestCntTotal} </p>
+  }
   const getMyPage = async () => {
     try {
       const res = await axios.get(
@@ -42,14 +57,7 @@ const MyPage = () => {
         </div>
         <div className={styles.infoArea}>
           <h4>활동 요약</h4>
-          <p>id : {myPageInfo.id} </p>
-          <p>lastServiceDate : {myPageInfo.lastServiceDate} </p>
-          <p>myRequestCntDone : {myPageInfo.myRequestCntDone}</p>
-          <p>myRequestCntTotal : {myPageInfo.myRequestCntTotal} </p>
-          <p>myServiceCnt : {myPageInfo.myServiceCnt} </p>
-          <p> myServiceRate : {myPageInfo.myServiceRate} </p>
-          <p>userRequestCntDone : {myPageInfo.userRequestCntDone} </p>
-          <p>userRequestCntTotal : {myPageInfo.userRequestCntTotal} </p>
+            {showActivity}
           <h4>활동 내역</h4>
           <Link to="/talentRegister">재능등록내역</Link>
           <Link to="/contractList">계약내역</Link>
