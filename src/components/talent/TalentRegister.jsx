@@ -9,67 +9,24 @@ import { UserContext } from '../../context/UserContext';
 
 const TalentRegister = () => {
 
+  const { userInfo } = useContext(UserContext);
   const [talent, setTalent] = useState([]);
   const [register, setRegister] = useState([]);
   const [category, setCategory] = useState([]);
-  const { userInfo } = useContext(UserContext);
 
   const categoryRef = useRef();
   const addressRef = useRef();
   const titleRef = useRef();
   const descriptionRef = useRef();
 
+  const [optionBox, setOptionBox] = useState([]);
+  const [optionNum, setOptionNum] = useState(1);
+  const optionDate = useRef([]);
+  const optionTime = useRef([]);
+  const optionPrice = useRef([]);
+  const optionStatus = useRef([]);
+  const [optionInfo, setOptionInfo] = useState([]);
 
-  const validationCheck = () => {
-
-    let validation = true;
-
-    if(!categoryRef.current.value){
-      window.alert("카테고리를 입력하세요.")
-      validation = false;
-    }else if(!addressRef.current.value){
-      window.alert("활동지역을 입력하세요.")
-      validation = false;
-    }else if(!titleRef.current.value){
-      window.alert("주제를 입력하세요.")
-      validation = false;
-    }else if(!titleRef.current.value){
-      window.alert("주제를 입력하세요.")
-      validation = false;
-    }else if(!descriptionRef.current.value){
-      window.alert("상세내용을 입력하세요.")
-      validation = false;
-    }
-
-    return validation;
-
-  }
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-
-    if(!validationCheck()) return ;
-
-    setRegister(
-      {
-        "id": 0,
-        "userId": userInfo.id,
-        "categoryId": categoryRef.current.value,
-        "address": addressRef.current.value,
-        "title": titleRef.current.value,
-        "description": descriptionRef.current.value,
-        "options": [
-          {
-            "dataTime": null,
-            "id": 0,
-            "price": 0,
-            "status": "BEFORE_SALE",
-            "talentId": 0
-          }
-        ]
-      }
-    )
-  }
 
   const getTalentCategory = async () => {
     try {
@@ -109,7 +66,102 @@ const TalentRegister = () => {
     getTalents();
   }, []);
 
+  const addOptionBox = () => {
+
+    const tempArr = [...optionBox];
+    tempArr.push(
+      <li>
+        {optionNum} |
+        {/* dateTime : <input type="text" name="dateTime" placeholder="일시" ref={el => (optionDateTime.current[optionNum] = el)} /> */}
+        일시 : <input type="date" name="dateTime" placeholder="일시" ref={el => (optionDate.current[optionNum] = el)} />
+        <input type="time" name="dateTime" placeholder="일시" ref={el => (optionTime.current[optionNum] = el)} />
+        금액 : <input type="text" name="price" placeholder="금액(원)" ref={el => (optionPrice.current[optionNum] = el)} />
+        {/* 상태 : <input type="text" name="status" placeholder="상태" ref={el => (optionStatus.current[optionNum] = el)} /> */}
+        상태 : <select ref={el => (optionStatus.current[optionNum] = el)}>
+          <option value="ON_SALE" >ON_SALE</option>
+          <option value="BEFORE_SALE" >BEFORE_SALE</option>
+        </select>
+
+      </li>);
+    console.log(tempArr);
+    setOptionBox(tempArr);
+    setOptionNum(optionNum + 1);
+
+  }
+
+  const validationCheck = () => {
+
+    let validation = true;
+
+    if (!categoryRef.current.value) {
+      window.alert("카테고리를 입력하세요.")
+      validation = false;
+    } else if (!addressRef.current.value) {
+      window.alert("활동지역을 입력하세요.")
+      validation = false;
+    } else if (!titleRef.current.value) {
+      window.alert("주제를 입력하세요.")
+      validation = false;
+    } else if (!titleRef.current.value) {
+      window.alert("주제를 입력하세요.")
+      validation = false;
+    } else if (!descriptionRef.current.value) {
+      window.alert("상세내용을 입력하세요.")
+      validation = false;
+    }
+
+    return validation;
+
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log("spot1");
+    if (!validationCheck()) return;
+    console.log("spot2");
+    setOption();
+  }
+
+  const setOption = () => {
+    console.log("spot3");
+    let tempOption = [];
+    for (let i = 1; i < optionNum; i++) {
+      console.log("spot4");
+      console.log(optionDate.current[i].value);
+      console.log(optionTime.current[i].value);
+      const newOption = {
+        "dateTime": optionDate.current[i].value + " " + optionTime.current[i].value + ":00",
+        "id": 0,
+        "price": optionPrice.current[i].value,
+        "status": optionStatus.current[i].value,
+        "talentId": 0
+      }
+      tempOption = [...tempOption, newOption]
+      console.log("tempOption");
+      console.log(tempOption);
+    }
+    setOptionInfo(tempOption);
+  }
+
+  useDidMountEffect(() => {
+    setRegister(
+      {
+        "id": 0,
+        "userId": userInfo.id,
+        "categoryId": categoryRef.current.value,
+        "address": addressRef.current.value,
+        "title": titleRef.current.value,
+        "description": descriptionRef.current.value,
+        "options": optionInfo
+      }
+    )
+  }, [optionInfo]);
+
   const postTalents = async () => {
+    console.log("optionInfo");
+    console.log(optionInfo);
+    console.log("register");
+    console.log(register);
     try {
       const res = await axios.post(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
@@ -129,6 +181,7 @@ const TalentRegister = () => {
   useDidMountEffect(() => {
     postTalents();
   }, [register]);
+
 
   return (
     <>
@@ -153,6 +206,9 @@ const TalentRegister = () => {
             <p>주제 : <input type="text" name="title" placeholder="주제" ref={titleRef} /></p>
             <p>상세내용 : <input type="text" name="description" placeholder="상세내용" ref={descriptionRef} /></p>
             <p />
+            <Button variant="outline-primary" onClick={addOptionBox} >추가 +</Button>
+            <ul> {optionBox} </ul>
+
             <Button as="input" type="submit" value="등록하기" />
           </form>
         </div>
