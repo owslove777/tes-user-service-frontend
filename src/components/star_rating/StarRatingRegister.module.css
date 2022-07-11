@@ -1,8 +1,10 @@
 .starRatingRegister {
-  flex-basis: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: white;
-  padding: 0 1em 0 1em;
+  padding: 1em 1em 2em 2em;
 }
 
 .info {
@@ -27,10 +29,10 @@
 .starRatingList {
 
   align-items: center;
-  min-height:236.75px ;
-  max-height:490px;
+  min-height:440px;
+  max-height:600px;
   border-radius: 0.2em;
-  margin: 2em 3em 1em 0em;
+  margin: 2em 1em 1em 0em;
   padding: 0.2em 0;
   /* background-color: yellow; */
   background: tesWhite;
@@ -38,4 +40,19 @@
   /* max-width: 30rem; */
   text-align: left;
   overflow: auto;
+}
+
+.starRatingList{
+  display: flex;
+  flex-direction: column;
+}
+
+.select,
+.comment {
+  width: 30%;
+  margin: 0 0 1.5em 0;
+}
+
+.button {
+  width: 15%;
 }

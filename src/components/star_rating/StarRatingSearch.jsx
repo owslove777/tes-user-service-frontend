@@ -37,8 +37,8 @@ const StarRatingSearch = () => {
 
   return ( <>
     <section className={styles.starRatingSearch}>
-        <h4> 별점 리스트</h4>
-        <div>
+        <h2> 전체 별점 리스트</h2>
+        <div className={styles.listBox}>
         {starRatings.map((data) => (
           <StarRatingResultInfo
           key={data.id}

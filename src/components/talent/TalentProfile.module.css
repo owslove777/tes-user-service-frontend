@@ -1,24 +1,45 @@
 .talentProfile {
-  flex-basis: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: white;
-  padding: 0 1em 0 1em;
+  padding: 1em 1em 2em 2em;
+}
+
+.pageTitle {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 1em 0;
+  color: tesGreen;
 }
 
 .profile {
   height: 30%;
   background-color: wheat;
-  margin: 1em 1em;
+  display : flex;
+  flex-direction: column;
+  align-items: center; 
 
 }
 
 .avartar {
   width: 14em;
+  min-width: 3em;
   height: 14em;
+  min-height: 3em;
   padding: 1em;
   margin-left: 0.5em;
   margin-right: 1em;
   border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  padding: 2em 1em 0 1em;
 }
 
 .title,
@@ -32,21 +53,13 @@
   padding: 0.1em 0 1.5em 0.5em;
 }
 
-.info {
-  width: 100%;
-  text-align: left;
-  padding: 2em 1em 0 1em;
-}
-
 .input {
   width: 100%;
   text-align: left;
-  padding: 2em 1em 0 1em;
-  margin-bottom : 2em;
+  padding: 0.1em 0 0 0.5em;
 }
 
 .button {
   width: 100%;
-  text-align: center;
-  
+  text-align: center;  
 }

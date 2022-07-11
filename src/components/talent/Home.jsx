@@ -30,12 +30,10 @@ const Home = () => {
 
   return (
     <section className={styles.home}>
-      <div className={styles.container}>
         <div className={styles.imageArea}>
           <img className={styles.imageProfile} src={userInfo.imageUrl}></img>
         </div>
         <h2 className={styles.title}> <br></br>[{userType}] <br></br><br></br> {userInfo.name}님 환영합니다.</h2>
-      </div>
     </section>
   );
 };

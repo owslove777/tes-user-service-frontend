@@ -17,17 +17,17 @@ const MyPage = () => {
   let showLink = null;
 
   if (userInfo.userType == "seller") {
-    showActivity[0] = <p>마지막 업데이트 일시 : {myPageInfo.lastServiceDate} </p>
-    showActivity[1] = <p>받은요청 종료 건수 : {myPageInfo.userRequestCntDone} </p>
-    showActivity[2] = <p>총 받은요청 건수 : {myPageInfo.userRequestCntTotal} </p>
-    showActivity[3] = <p>총 별점 개수 : {myPageInfo.myServiceCnt} </p>
-    showActivity[4] = <p>총 별점 평균 : {myPageInfo.myServiceRate} </p>
-    showLink = <Link to="/talentRegister">재능등록내역</Link>
+    showActivity[0] = <span className={styles.description}>마지막 업데이트 일시 : {myPageInfo.lastServiceDate} </span>
+    showActivity[1] = <span className={styles.description}>받은요청 종료 건수 : {myPageInfo.userRequestCntDone} </span>
+    showActivity[2] = <span className={styles.description}>총 받은요청 건수 : {myPageInfo.userRequestCntTotal} </span>
+    showActivity[3] = <span className={styles.description}>총 별점 개수 : {myPageInfo.myServiceCnt} </span>
+    showActivity[4] = <span className={styles.description}>총 별점 평균 : {myPageInfo.myServiceRate} </span>
+    showLink = <Link className={styles.description} to="/talentRegister">재능등록내역</Link>
 
   } else if (userInfo.userType == "user") {
-    showActivity[0] = <p>마지막 업데이트 일시 : {myPageInfo.lastServiceDate} </p>
-    showActivity[1] = <p>요청의뢰 종료 건수 : {myPageInfo.myRequestCntDone}</p>
-    showActivity[2] = <p>총 요청의뢰 건수 : {myPageInfo.myRequestCntTotal} </p>
+    showActivity[0] = <span className={styles.description}>마지막 업데이트 일시 : {myPageInfo.lastServiceDate} </span>
+    showActivity[1] = <span className={styles.description}>요청의뢰 종료 건수 : {myPageInfo.myRequestCntDone}</span>
+    showActivity[2] = <span className={styles.description}>총 요청의뢰 건수 : {myPageInfo.myRequestCntTotal} </span>
   }
   const getMyPage = async () => {
     try {
@@ -48,26 +48,34 @@ const MyPage = () => {
   return (
     <>
       <section className={styles.myPage}>
-        <h1 >마이페이지</h1>
+        <div className='pageTitle'>
+          <h2>마이페이지</h2>
+        </div>
         <div className={styles.imageArea}>
           <img className={styles.imageProfile} src={userInfo.imageUrl}></img>
-          <div className={styles.useInfo}>
-            <p>{userInfo.name} </p>
-            <p>{userInfo.id} </p>
-            <p>{userInfo.userType} </p>
+          <div className={styles.userInfo}>
+            <p>이름 : {userInfo.name} </p>
+            <p>계정 : {userInfo.id} </p>
+            <p>타입 : {userInfo.userType} </p>
           </div>
         </div>
         <div className={styles.infoArea}>
-          <h4>활동 요약</h4>
+          <div className={styles.subTitle}>
+            <h4>활동 요약</h4>
+          </div>
           {showActivity}
-          <h4>활동 내역</h4>
+          <div className={styles.subTitle}>
+            <h4>활동 내역</h4>
+          </div>
           {showLink}
-          <Link to="/contractList">계약내역</Link>
-          <Link to="/starRatingList">별점내역</Link>
-          <h4>설정</h4>
-          <Link to="#">공지사항</Link>
-          <Link to="#">TES안내</Link>
-          <Link to="#">TES버전</Link>
+          <Link className={styles.description} to="/contractList">계약내역</Link>
+          <Link className={styles.description} to="/starRatingList">별점내역</Link>
+          <div className={styles.subTitle}>
+            <h4>설정</h4>
+          </div>
+          <Link className={styles.description} to="#">공지사항</Link>
+          <Link className={styles.description} to="#">TES안내</Link>
+          <Link className={styles.description} to="#">TES버전</Link>
         </div>
 
       </section>

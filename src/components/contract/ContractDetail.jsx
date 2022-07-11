@@ -51,7 +51,9 @@ const ContractDetail = (props) => {
   return (
     <>
       <section className={styles.contractDetail}>
-        <h1>'{data.userNm}'님의 요청서 상세</h1>
+        <div className={styles.pageTitle}>
+          <h2>'{data.userNm}'님의 요청서 상세</h2>
+        </div>
         <div className={styles.info}>
           <h5>주제</h5>
           <p className={styles.title}>{data.title} </p>
@@ -68,8 +70,10 @@ const ContractDetail = (props) => {
           <h5>결제금액</h5>
           <p className={styles.description}>{data.price} 원 </p>
         </div>
-        <Button variant="primary" className={styles.acceptButton} as="input" type="submit" value="수락하기" onClick={() => { onClick("ACCEPTED") }} />
-        <Button variant="secondary" className={styles.rejectButton} as="input" type="submit" value="거절하기" onClick={() => { onClick("REJECTED") }} />
+        <div className={styles.button}>
+          <Button variant="primary" className={styles.acceptButton} as="input" type="submit" value="수락하기" onClick={() => { onClick("ACCEPTED") }} />
+          <Button variant="secondary" className={styles.rejectButton} as="input" type="submit" value="거절하기" onClick={() => { onClick("REJECTED") }} />
+        </div>
       </section>
     </>
   )

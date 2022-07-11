@@ -26,6 +26,7 @@ const TalentRegister = () => {
   const optionPrice = useRef([]);
   const optionStatus = useRef([]);
   const [optionInfo, setOptionInfo] = useState([]);
+  const [visible, setVisible] =useState(false);
 
 
   const getTalentCategory = async () => {
@@ -71,7 +72,7 @@ const TalentRegister = () => {
     const tempArr = [...optionBox];
     tempArr.push(
       <li>
-        {optionNum} |
+        
         {/* dateTime : <input type="text" name="dateTime" placeholder="일시" ref={el => (optionDateTime.current[optionNum] = el)} /> */}
         일시 : <input type="date" name="dateTime" placeholder="일시" ref={el => (optionDate.current[optionNum] = el)} />
         <input type="time" name="dateTime" placeholder="일시" ref={el => (optionTime.current[optionNum] = el)} />
@@ -171,6 +172,7 @@ const TalentRegister = () => {
       );
       console.log(res);
       window.alert("재능 등록 완료");
+      setVisible(false);
     } catch (err) {
       console.log(err);
       window.alert("재능 등록 오류");
@@ -182,18 +184,24 @@ const TalentRegister = () => {
     postTalents();
   }, [register]);
 
-
-  return (
+    return (
     <>
       <section className={styles.talentRegister}>
-        <h1 className={styles.title}>재능 등록</h1>
-        <div className={styles.talentList}>
-          <h4> 신규 등록</h4>
+        <h2 className={styles.pageTitle}>재능 등록</h2>
+        <div className={styles.buttonArea}>
+          <Button className={styles.button} variant="primary" onClick={() => {
+            setVisible(!visible);
+          }}>
+            신규등록+
+          </Button>
+        </div>
+        {visible &&
+        <div className={styles.registerArea}>
           <form className={styles.info} onSubmit={onSubmit}>
             <p>재능인 : {userInfo.name}  [ID : {userInfo.id}] </p>
             {/* <p>카테고리 : <input type="text" name="categoryId" placeholder="카테고리" ref={categoryRef} /></p> */}
-            <span>카테고리 : </span>
-            <select ref={categoryRef}>
+            <div>카테고리</div>
+            <select className={styles.input} ref={categoryRef}>
               <option defaultValue="" value="" ></option>
               {category.map((option) => (
                 <option
@@ -202,18 +210,24 @@ const TalentRegister = () => {
                 >{option.categoryName}</option>
               ))}
             </select>
-            <p>활동지역 : <input type="text" name="address" placeholder="주소" ref={addressRef} /></p>
-            <p>주제 : <input type="text" name="title" placeholder="주제" ref={titleRef} /></p>
-            <p>상세내용 : <input type="text" name="description" placeholder="상세내용" ref={descriptionRef} /></p>
-            <p />
-            <Button variant="outline-primary" onClick={addOptionBox} >추가 +</Button>
+            <div>활동지역</div>
+            <input className={styles.input} type="text" name="address" placeholder="주소" ref={addressRef} />
+            <div>주제</div>
+            <input className={styles.input} type="text" name="title" placeholder="주제" ref={titleRef} />
+            <div>상세내용</div>
+            <textArea className={styles.input} type="text" name="description" placeholder="상세내용" ref={descriptionRef} />
+            <div className={styles.addButton}>
+            <Button  variant="outline-primary" onClick={addOptionBox} >추가 +</Button>
+            </div>
             <ul> {optionBox} </ul>
-
-            <Button as="input" type="submit" value="등록하기" />
+            <div >
+            <Button className={styles.regiButton} as="input" type="submit" value="등록하기" />
+            </div>
           </form>
         </div>
-        <div className={styles.talentList}>
-          <h4> 나의 등록 리스트</h4>
+        }
+        <h4 className={styles.subTitle}> 나의 등록 리스트</h4>
+        <div className={styles.talentList}>          
           {talent.map((data) => (
             <TalentInfo
               key={data.id}

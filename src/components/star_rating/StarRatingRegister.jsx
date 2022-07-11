@@ -79,13 +79,12 @@ import todayTime from '../../utils/todayTime';
 
   return ( <>
     <section className={styles.starRatingRegister}>
-      <h1 className={styles.title}>별점 등록</h1>
+      <h2 className={styles.title}>별점 등록</h2>
       <div className={styles.starRatingList}>
-      <h4></h4>
         <form className={styles.info} onSubmit={onSubmit}>
           <p>재능아이디 : {data.talentId} </p>
           <p>재능명 : {data.title} </p>
-          <label>별점 : </label>
+          <div>별점 : </div>
           <select className={styles.select} ref={ratingRef}>
             <option value="1"> 1 </option>
             <option value="2"> 2 </option>
@@ -93,15 +92,12 @@ import todayTime from '../../utils/todayTime';
             <option value="4"> 4 </option>
             <option value="5"> 5 </option>
           </select>
-          <p >리뷰 : <input type="text" className={styles.comment} name="comment" placeholder="리뷰를 남겨주세요" ref={commentRef} /></p>
+          <div>리뷰</div>
+          <textarea type="text" className={styles.comment} name="comment" placeholder="리뷰를 남겨주세요" ref={commentRef} />
           <p />
           <Button className={styles.button} as="input" type="submit" value="등록하기" />
         </form>
       </div>
-
-
-
-
     </section>
 
 
