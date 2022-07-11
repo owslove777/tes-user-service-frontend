@@ -3,7 +3,6 @@ import Auth from "./components/user_service/Auth";
 import CheckUserType from "./components/user_service/CheckUserType";
 import TalentRegister from "./components/talent/TalentRegister";
 import TalentSearch from "./components/talent/TalentSearch";
-import TalentList from "./components/talent/TalentList";
 import TalentDetail from "./components/talent/TalentDetail.jsx";
 import Home from "./components/talent/Home";
 import Login from "./components/user_service/Login";
@@ -61,9 +60,6 @@ function App() {
             </Route>
             <Route path="/talentSearch">
               {userInfo.id ? <TalentSearch /> : <Redirect to="/login" />}
-            </Route>
-            <Route path="/talentList">
-              {userInfo.id ? <TalentList /> : <Redirect to="/login" />}
             </Route>
             <Route path="/talentDetail">
               {userInfo.id ? <TalentDetail /> : <Redirect to="/login" />}
