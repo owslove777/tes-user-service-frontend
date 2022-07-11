@@ -13,9 +13,9 @@ const StarRatingList = () => {
 
   let uriInfo = null;
 
-  if(userInfo.userType == 'seller') {
+  if (userInfo.userType == 'seller') {
     uriInfo = 'talent-user'
-  } else if(userInfo.userType == 'user') {
+  } else if (userInfo.userType == 'user') {
     uriInfo = 'user'
   }
 
@@ -28,7 +28,7 @@ const StarRatingList = () => {
         // process.env.REACT_APP_TALENT_SERVER+"/talents/"
         // process.env.REACT_APP_TALENT_SERVER + "/talents/user/" + userInfo.id
         // process.env.REACT_APP_CONTRACT_SERVER + "/contracts/user/"+userInfo.id
-        process.env.REACT_APP_CONTRACT_SERVER + "/contracts/"+uriInfo+"/"+userInfo.id
+        process.env.REACT_APP_CONTRACT_SERVER + "/contracts/" + uriInfo + "/" + userInfo.id
       );
 
       console.log("res.data : " + JSON.stringify(res.data));
@@ -49,24 +49,24 @@ const StarRatingList = () => {
   ;
 
 
-  return ( <>
+  return (<>
     <section className={styles.starRatingList}>
-        <h4> 나의 별점 리스트</h4>
-        <div>
+      <h2> 나의 별점 리스트</h2>
+      <div className={styles.listBox}>
         {starRatings.map((data) => (
           <StarRatingInfo
-          key={data.id}
-          talentId={data.talentId}
-          talentUserId={data.talentUserId}
-          talentUserNm={data.talentUserNm}
-          userId={data.userId}
-          userNm={data.userNm}
-          title={data.title}
-          price={data.price}
-          contractStatus={data.contractStatus}
-          address={data.address}
-          // description={data.description}
-          root="Register"
+            key={data.id}
+            talentId={data.talentId}
+            talentUserId={data.talentUserId}
+            talentUserNm={data.talentUserNm}
+            userId={data.userId}
+            userNm={data.userNm}
+            title={data.title}
+            price={data.price}
+            contractStatus={data.contractStatus}
+            address={data.address}
+            // description={data.description}
+            root="Register"
           />
         ))}
 

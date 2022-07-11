@@ -57,12 +57,14 @@ const TalentProfile = (props) => {
   return (
     <>
       <section className={styles.talentProfile}>
-        <h1>재능인 프로필</h1>
+        <div className={styles.pageTitle}>
+          <h2>재능인 프로필</h2>
+        </div>
         <div className={styles.profile}>
           <img className={styles.avartar} src="/images/default_profile.png" alt="profile photo" />
           <p className={styles.userId}>재능인 [ {data.userId} ] </p>
         </div>
-        <div className={styles.info}>
+        <section className={styles.info}>
           <h5>주제</h5>
           <p className={styles.title}>{data.title} </p>
           <h5>카테고리</h5>
@@ -72,9 +74,10 @@ const TalentProfile = (props) => {
           <h5>내용</h5>
           <p className={styles.description}>{data.description} </p>
           <h5>요청 재능 선택</h5>
+          <div className={styles.input}>
           {talentOption.map((optionData) => (
             <p key={optionData.id}>
-              <input
+              <input                
                 type="radio"
                 value={optionData.id}
                 checked={Number(selectOption.id) === optionData.id}
@@ -86,8 +89,9 @@ const TalentProfile = (props) => {
               {console.log("optionData.id2 : " + optionData.id)}
             </p>
           ))}
+          </div>
           <br></br>
-        </div>
+        </section>
         {/* <Button className={styles.button} as="input" type="submit" value="요청하기" onClick={requestContract}/> */}
         {button}
       </section>

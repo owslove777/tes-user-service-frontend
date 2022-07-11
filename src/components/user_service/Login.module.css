@@ -2,9 +2,9 @@
 
 .login {
   width: 30em;
-  text-align: center;
   display: flex;
   flex-direction: column;
+  text-align: center;
   justify-content: center;
   background-color: tesWhite;
 }
@@ -15,13 +15,8 @@
 
 .list {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  list-style: none;
+  justify-content: center;
   padding: 2rem;
-}
-
-.item {
   margin-bottom: 0.5em;
 }
 

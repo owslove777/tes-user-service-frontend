@@ -46,7 +46,7 @@ const ContractList = () => {
     <>
 
       <section className={styles.contractList}>
-        <h1>계약 목록 확인</h1>
+        <h2>계약 목록 확인</h2>
         <h4>[{userInfo.userType}]</h4>
         <div className={styles.listBox}>
           {contracts.map((data) => (

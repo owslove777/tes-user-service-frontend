@@ -1,31 +1,59 @@
 .myPage{
   width: 100%;
   height: 100%;
-
+  display: flex;
   flex-direction: column;
   background-color: white;
+  padding: 1em 1em 2em 2em;
+}
+
+.pageTitle {
+  width: 100%;
+  text-align: center;
+  margin: 0 0 1em 0;
+  color: tesGreen;
 }
 
 .imageArea{
   display: flex;
+  flex-direction: row;
+
 }
 
 .imageProfile {
   width: 12em;
   height: 12em;
-  display: flex;
   align-items: center;
   justify-content: center;
   padding: 1em;  
   border-radius: 20%;  
+  align-items: baseline;
 }
 
-.useInfo {
-
+.userInfo {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  justify-content: center;
+  margin-left: 1.5em;
+  
 }
 
 .infoArea {
-  text-align: left;
   display: flex;
   flex-direction: column;
+  text-align: left;
+  padding: 1em 1em 0 1em;
+}
+
+.subTitle {
+  margin-top: 1em;
+}
+
+.description {
+  margin: 0;
+  font-size: 1rem;
+  margin-bottom: 0.2em;
+  padding: 0.1em 0 0.5em 0.5em;
 }

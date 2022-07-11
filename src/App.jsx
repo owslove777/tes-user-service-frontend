@@ -35,6 +35,8 @@ function App() {
         <NavBarElement />
       </div>
     )
+  } else {
+    navBar = <div className={styles.navNone} />
   }
 
   return (
