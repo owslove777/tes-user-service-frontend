@@ -3,13 +3,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import qs from "qs";
 import { useHistory, useLocation } from "react-router-dom";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
 import styles from './Home.module.css';
-import WelcomePage from "./WelcomePage";
-import TalentList from "./TalentList";
 import NavBarElement from "../navbar/NavBarElement";
-import Sidebar from "../sidebar/Sidebar";
 import { UserContext } from "../../context/UserContext";
 
 
