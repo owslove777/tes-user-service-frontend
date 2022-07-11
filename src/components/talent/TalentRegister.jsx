@@ -74,11 +74,11 @@ const TalentRegister = () => {
       <li>
         
         {/* dateTime : <input type="text" name="dateTime" placeholder="일시" ref={el => (optionDateTime.current[optionNum] = el)} /> */}
-        일시 : <input type="date" name="dateTime" placeholder="일시" ref={el => (optionDate.current[optionNum] = el)} />
-        <input type="time" name="dateTime" placeholder="일시" ref={el => (optionTime.current[optionNum] = el)} />
-        금액 : <input type="text" name="price" placeholder="금액(원)" ref={el => (optionPrice.current[optionNum] = el)} />
+        일시 <input className={styles.addOption} type="date" name="dateTime" placeholder="일시" ref={el => (optionDate.current[optionNum] = el)} />
+        &nbsp;<input type="time" className={styles.addOption} name="dateTime" placeholder="일시" ref={el => (optionTime.current[optionNum] = el)} />
+        &nbsp;&nbsp;&nbsp;금액 <input className={styles.addOption} type="text" name="price" placeholder="금액(원)" ref={el => (optionPrice.current[optionNum] = el)} />
         {/* 상태 : <input type="text" name="status" placeholder="상태" ref={el => (optionStatus.current[optionNum] = el)} /> */}
-        상태 : <select ref={el => (optionStatus.current[optionNum] = el)}>
+        &nbsp;&nbsp;&nbsp;상태 <select className={styles.addOption} ref={el => (optionStatus.current[optionNum] = el)}>
           <option value="ON_SALE" >ON_SALE</option>
           <option value="BEFORE_SALE" >BEFORE_SALE</option>
         </select>
