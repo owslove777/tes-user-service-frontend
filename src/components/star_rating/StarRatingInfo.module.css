@@ -35,7 +35,11 @@
 
 .title,
 .talentId,
-.userId ,
+.talentUserNm,
+.address,
+.userId,
+.price,
+.contractStatus,
 .description{
   margin: 0;
   font-size: 0.8rem;
