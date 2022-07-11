@@ -51,7 +51,7 @@ const StarRatingList = () => {
 
   return ( <>
     <section className={styles.starRatingList}>
-        <h4> 등록가능한 별점 리스트</h4>
+        <h4> 나의 별점 리스트</h4>
         <div>
         {starRatings.map((data) => (
           <StarRatingInfo
