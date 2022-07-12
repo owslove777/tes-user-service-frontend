@@ -147,10 +147,10 @@ const ContractInfo = ({
     <li className={styles.contractInfo} onClick={onClick}>
       <img className={styles.avartar} src="/images/default_profile.png" alt="profile photo" />
       <div className={styles.info}>
-        <h1 className={styles.title}>Title : {title} </h1>
+        <h1 className={styles.title}>{title} </h1>
         <p className={styles.talentId}>재능ID : {talentId} </p>
-        <p className={styles.talentItemId}>재능옵션 : {talentItemId}</p>
         <p className={styles.talentUserNm}>재능인명 : {talentUserNm} [ID : {talentUserId}]</p>
+        <p className={styles.price}>요청금액 : {price}</p>
         <p className={styles.userNm}>요청인명 : {userNm} [ID : {userId}]</p>
         </div><div className={styles.info}>
         <p className={styles.requestDateTime}>요청일시 : {requestDateTime}</p>

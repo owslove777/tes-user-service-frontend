@@ -68,7 +68,7 @@ const TalentProfile = (props) => {
           <h5>주제</h5>
           <p className={styles.title}>{data.title} </p>
           <h5>카테고리</h5>
-          <p className={styles.categoryId}>{data.categoryName} [{data.categoryId}] </p>
+          <p className={styles.categoryId}>{data.categoryName} </p>
           <h5>지역</h5>
           <p className={styles.address}>{data.address} </p>
           <h5>내용</h5>
