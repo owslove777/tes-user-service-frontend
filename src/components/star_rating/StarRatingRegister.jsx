@@ -82,7 +82,7 @@ import todayTime from '../../utils/todayTime';
       <h2 className={styles.title}>별점 등록</h2>
       <div className={styles.starRatingList}>
         <form className={styles.info} onSubmit={onSubmit}>
-          <p>재능아이디 : {data.talentId} </p>
+          <p>재능ID : {data.talentId} </p>
           <p>재능명 : {data.title} </p>
           <div>별점 : </div>
           <select className={styles.select} ref={ratingRef}>

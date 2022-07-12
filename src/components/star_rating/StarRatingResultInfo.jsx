@@ -19,10 +19,10 @@ const StarRatingResultInfo = ({ talentId, title, rating, comment, requestUserId,
       <div className={styles.info}>
         <h1 className={styles.title}> {title} </h1>
         <p className={styles.talentId}>재능ID : {talentId} </p>
-        <p className={styles.requestUserId}>리뷰자ID : {requestUserId} </p>
+        <p className={styles.requestUserId}>리뷰어 : {requestUserId} </p>
+        <p className={styles.rateDate}>등록일자 : {rateDate} </p>
         <p className={styles.rating}>별점 : {rating} </p>
-        <p className={styles.comment}>리뷰 : {comment} </p>
-        <p className={styles.rateDate}>리뷰등록일자 : {rateDate} </p>
+        <p className={styles.comment}>리뷰내용 : {comment} </p>
         <br></br>
       </div>
     </li>

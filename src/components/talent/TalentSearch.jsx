@@ -8,7 +8,7 @@ const TalentSearch = () => {
 
   const [talents, setTalents] = useState([]);
   // const [url, setUrl] = useState("http://localhost:30090/talent/talents/");
-  const [url, setUrl] = useState(process.env.REACT_APP_TALENT_SERVER + "/talents/");
+  const [url, setUrl] = useState(process.env.REACT_APP_BFF_SERVICE_SERVER + "/talents/");
   const [category, setCategory] = useState([]);
 
   const categoryRef = useRef();
@@ -29,7 +29,7 @@ const TalentSearch = () => {
   const getTalentCategory = async () => {
     try {
       const res = await axios.get(
-        process.env.REACT_APP_BFF_SERVICE_SERVER + '/category'
+        process.env.REACT_APP_TALENT_SERVER + '/category'
       )
       console.log("res");
       console.log(res.data);
