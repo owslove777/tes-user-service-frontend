@@ -36,9 +36,10 @@ const StarRatingInfo = ({ talentId, talentUserId, talentUserNm, userId, userNm, 
       <img className={styles.avartar} src="/images/default_profile.png" alt="profile photo" />
       <div className={styles.info}>
         <p className={styles.title}> {title} </p>
-        <p className={styles.talentUserNm}>재능인 : {talentUserNm} [{talentId}] </p>
-        <p className={styles.address}>지역 : {address} </p>
-        <p className={styles.price}>가격 : {price} </p>
+        <p className={styles.talentId}>재능ID : {talentId} </p>
+        <p className={styles.talentUserNm}>재능인명 : {talentUserNm} </p>
+        <p className={styles.address}>활동지역 : {address} </p>
+        <p className={styles.price}>결제금액 : {price} </p>
         <p className={styles.contractStatus}>진행상태 : {contractStatus} </p>
 
         {/* <p className={styles.description}>소개 : {description} </p> */}
