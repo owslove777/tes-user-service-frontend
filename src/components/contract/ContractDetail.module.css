@@ -25,6 +25,7 @@
 .categoryId,
 .userId,
 .address,
+.talentUserNm,
 .description {
   margin: 0;
   font-size: 1rem;
