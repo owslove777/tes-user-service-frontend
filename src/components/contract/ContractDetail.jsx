@@ -57,8 +57,10 @@ const ContractDetail = (props) => {
         <div className={styles.info}>
           <h5>주제</h5>
           <p className={styles.title}>{data.title} </p>
+          <h5>재능ID</h5>
+          <p className={styles.talentId}>{data.talentId} </p>
           <h5>재능인</h5>
-          <p className={styles.talentId}>{data.talentUserNm} [{data.talentId}] </p>
+          <p className={styles.talentUserNm}>{data.talentUserNm}</p>
           <h5>요청인</h5>
           <p className={styles.categoryId}>{data.userNm} </p>
           <h5>지역</h5>
