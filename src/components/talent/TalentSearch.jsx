@@ -17,11 +17,11 @@ const TalentSearch = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (categoryRef.current.value)
-      setUrl(process.env.REACT_APP_TALENT_SERVER + `/talents/category/${categoryRef.current.value}?address=${addrRef.current.value}`)
+      setUrl(process.env.REACT_APP_BFF_SERVICE_SERVER + `/talents/category/${categoryRef.current.value}?address=${addrRef.current.value}`)
     else if (!categoryRef.current.value && addrRef.current.value)
       window.alert("지역검색시, 카테고리는 필수로 입력해주세요.");
     else
-      setUrl(process.env.REACT_APP_TALENT_SERVER + "/talents/");
+      setUrl(process.env.REACT_APP_BFF_SERVICE_SERVER + "/talents/");
 
     console.log(url);
   }
@@ -110,6 +110,8 @@ const TalentSearch = () => {
             description={data.description}
             options={data.options}
             talentId={data.id}
+            userName={data.userName}
+            categoryName={data.categoryName}
             root="Search"
           />
         ))}

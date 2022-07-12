@@ -62,13 +62,13 @@ const TalentProfile = (props) => {
         </div>
         <div className={styles.profile}>
           <img className={styles.avartar} src="/images/default_profile.png" alt="profile photo" />
-          <p className={styles.userId}>재능인 [ {data.userId} ] </p>
+          <p className={styles.userId}>재능인 "{data.userName}" [{data.userId}] </p>
         </div>
         <section className={styles.info}>
           <h5>주제</h5>
           <p className={styles.title}>{data.title} </p>
           <h5>카테고리</h5>
-          <p className={styles.categoryId}>{data.categoryId} </p>
+          <p className={styles.categoryId}>{data.categoryName} [{data.categoryId}] </p>
           <h5>지역</h5>
           <p className={styles.address}>{data.address} </p>
           <h5>내용</h5>

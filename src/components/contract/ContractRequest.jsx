@@ -20,7 +20,7 @@ const ContractRequest = () => {
       "talentId": location.state.selectOption.talentId,
       "talentItemId": location.state.selectOption.id,
       "talentUserId": location.state.data.userId,
-      "talentUserNm": null, //정보없음.
+      "talentUserNm": location.state.data.userName,
       "userId": userInfo.id,
       "userNm": userInfo.name,
       "contractStatus": "ACCEPT_REQUESTED",

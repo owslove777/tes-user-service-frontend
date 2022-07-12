@@ -50,7 +50,7 @@ const TalentRegister = () => {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/user/2251212836"
-        process.env.REACT_APP_TALENT_SERVER + "/talents/user/" + userInfo.id
+        process.env.REACT_APP_BFF_SERVICE_SERVER + "/talents/user/" + userInfo.id
       );
 
       if (Array.isArray(res.data)) {
@@ -237,6 +237,8 @@ const TalentRegister = () => {
               address={data.address}
               description={data.description}
               options={data.options}
+              userName={data.userName}
+              categoryName={data.categoryName}
               root="Register"
             />
           ))}

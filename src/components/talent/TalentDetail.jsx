@@ -32,7 +32,7 @@ const TalentDetail = (props) => {
       const res = await axios.get(
         // "http://clouddance.hrd-edu.cloudzcp.com/talent/talents"
         // "http://localhost:30090/talent/talents/detail/" + data.userId
-        process.env.REACT_APP_TALENT_SERVER+"/talents/detail/" + data.talentId
+        process.env.REACT_APP_BFF_SERVICE_SERVER+"/talents/detail/" + data.talentId
       );
 
       console.log("userId : " + data.userId);
