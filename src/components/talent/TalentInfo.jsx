@@ -24,7 +24,7 @@ const TalentInfo = ({ categoryId, userId, title, address, description, options, 
       <img className={styles.avartar} src="/images/default_profile.png" alt="profile photo" />
       <div className={styles.info}>
         <h1 className={styles.title}>{title} </h1>
-        <p className={styles.categoryId}>카테고리 : {categoryName} [{categoryId}] </p>
+        <p className={styles.categoryId}>카테고리 : {categoryName} </p>
         <p className={styles.userId}>재능인 : {userName} [{userId}] </p>
         <p className={styles.address}>지역 : {address} </p>
         <br></br>

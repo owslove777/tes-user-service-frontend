@@ -29,7 +29,7 @@ const TalentSearch = () => {
   const getTalentCategory = async () => {
     try {
       const res = await axios.get(
-        process.env.REACT_APP_TALENT_SERVER + '/category'
+        process.env.REACT_APP_BFF_SERVICE_SERVER + '/category'
       )
       console.log("res");
       console.log(res.data);
